@@ -1,0 +1,182 @@
+@extends('front.layouts.app')
+
+@section('content')
+
+    <!-- Banner -->
+    <section class="tm-banner">
+        <!-- Flexslider -->
+        <div class="flexslider flexslider-banner">
+          <ul class="slides">
+            <li>
+                <div class="tm-banner-inner">
+                    <h1 class="tm-banner-title">Find <span class="tm-yellow-text">The Best</span> Place</h1>
+                    <p class="tm-banner-subtitle">For Your Holidays</p>
+                    <a href="#more" class="tm-banner-link">Learn More</a>
+                </div>
+                <img src="img/banner-gunung.jpg" alt="Image" />
+            </li>
+            <li>
+                <div class="tm-banner-inner">
+                    <h1 class="tm-banner-title">Find <span class="tm-yellow-text">The Best</span> Place</h1>
+                    <p class="tm-banner-subtitle">Wonderful Destinations</p>
+                    <a href="#more" class="tm-banner-link">Learn More</a>
+                </div>
+              <img src="img/banner-panjat.jpg" alt="Image" />
+            </li>
+            <li>
+                <div class="tm-banner-inner">
+                    <h1 class="tm-banner-title">find <span class="tm-yellow-text">The Best</span> Place</h1>
+                    <p class="tm-banner-subtitle">Great Place</p>
+                    <a href="#more" class="tm-banner-link">Learn More</a>
+                </div>
+              <img src="img/banner-arjer.jpg" alt="Image" />
+            </li>
+            <li>
+                <div class="tm-banner-inner">
+                    <h1 class="tm-banner-title">find <span class="tm-yellow-text">The Best</span> Place</h1>
+                    <p class="tm-banner-subtitle">Quiet</p>
+                    <a href="#more" class="tm-banner-link">Learn More</a>
+                </div>
+              <img src="img/banner-goa.jpg" alt="Image" />
+            </li>
+          </ul>
+        </div>
+    </section>
+
+    <!-- bg abu-abu -->
+    <section class="container tm-home-section-1" id="more">
+        <div class="section-margin-top">
+            <div class="row">
+                <div class="tm-section-header">
+                    <div class="col-lg-3 col-md-3 col-sm-3"><hr></div>
+                    <div class="col-lg-6 col-md-6 col-sm-6"><h2 class="tm-section-title">KATEGORI WISATA ALAM BEBAS</h2></div>
+                    <div class="col-lg-3 col-md-3 col-sm-3"><hr></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-xxs-12">
+                    <div class="tm-home-box-2">
+                        <img src="img/gunung-1.jpg" alt="image" class="img-responsive">
+                        <h3>Wisata Alam Bebas Pendakian Gunung</h3>
+                        <div class="tm-home-box-2-container">
+                            <i class="fa fa-paw tm-home-box-2-icon border-right"></i>
+                            <a href="wis gunung/daftar-gunung.html" class="tm-home-box-2-link"><span class="tm-home-box-2-description">LIHAT</span></a>
+                            <i class="fa fa-paw tm-home-box-2-icon border-left"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-xxs-12">
+                    <div class="tm-home-box-2">
+                        <img src="img/panjat-1.jpg" alt="image" class="img-responsive">
+                        <h3>Wisata Alam Bebas Panjat Tebing</h3>
+                        <div class="tm-home-box-2-container">
+                            <i class="fa fa-paw tm-home-box-2-icon border-right"></i>
+                            <a href="wis panjat/daftar-panjat.html" class="tm-home-box-2-link"><span class="tm-home-box-2-description">LIHAT</span></a>
+                            <i class="fa fa-paw tm-home-box-2-icon border-left"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-xxs-12">
+                    <div class="tm-home-box-2">
+                        <img src="img/arjer-1.jpg" alt="image" class="img-responsive">
+                        <h3>Wisata Alam Bebas Arung Jeram</h3>
+                        <div class="tm-home-box-2-container">
+                            <i class="fa fa-paw tm-home-box-2-icon border-right"></i>
+                            <a href="wis arjer/daftar-arjer.html" class="tm-home-box-2-link"><span class="tm-home-box-2-description">LIHAT</span></a>
+                            <i class="fa fa-paw tm-home-box-2-icon border-left"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-xxs-12">
+                    <div class="tm-home-box-2 tm-home-box-2-right">
+                        <img src="img/caving-1.jpg" alt="image" class="img-responsive">
+                        <h3>Wisata Alam Bebas Susur Goa</h3>
+                        <div class="tm-home-box-2-container">
+                            <i class="fa fa-paw tm-home-box-2-icon border-right"></i>
+                            <a href="wis goa/daftar-goa.html" class="tm-home-box-2-link"><span class="tm-home-box-2-description">LIHAT</span></a>
+                            <i class="fa fa-paw tm-home-box-2-icon border-left"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p class="home-description">Dapatkan perjalanan terbaik anda dengan mencari referensi wisata alam bebas dengan informasi yang sangat lengkap serta dilengkapi dengan informasi rute wisata yang diinginkan untuk mempermudah perjalanan anda.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- bg putih -->
+    <section class="tm-white-bg section-padding-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="tm-section-header section-margin-top">
+                    <div class="col-lg-4 col-md-3 col-sm-3"><hr></div>
+                    <div class="col-lg-4 col-md-6 col-sm-6"><h2 class="tm-section-title">WISATA ALAM BEBAS TERPOPULER</h2></div>
+                    <div class="col-lg-4 col-md-3 col-sm-3"><hr></div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="tm-home-box-3">
+                        <div class="tm-home-box-3-img-container">
+                            <img src="img/gunung-2.jpg" alt="image" class="img-responsive">
+                        </div>
+                        <div class="tm-home-box-3-info">
+                            <p class="tm-home-box-3-description">Keterangan wisata alam terpopuler Keterangan wisata alam terpopuler Keterangan wisata alam terpopuler Keterangan wisata alam terpopuler</p>
+                            <div class="tm-home-box-2-container">
+                            <a href="#" class="tm-home-box-2-link"><i class="fa fa-map-marker tm-home-box-2-icon border-right"></i></a>
+                            <a href="wis gunung/detail-raung.html" class="tm-home-box-2-link"><span class="tm-home-box-2-description box-3">LIHAT</span></a>
+                            <a href="login.html" class="tm-home-box-2-link"><i class="fa fa-ticket tm-home-box-2-icon border-left"></i></a>
+                        </div>
+                        </div>
+                    </div>
+                 </div>
+                 <div class="col-lg-6">
+                    <div class="tm-home-box-3">
+                        <div class="tm-home-box-3-img-container">
+                            <img src="img/panjat-2.jpg" alt="image" class="img-responsive">
+                        </div>
+                        <div class="tm-home-box-3-info">
+                            <p class="tm-home-box-3-description">Keterangan wisata alam terpopuler Keterangan wisata alam terpopuler Keterangan wisata alam terpopuler Keterangan wisata alam terpopuler</p>
+                            <div class="tm-home-box-2-container">
+                            <a href="#" class="tm-home-box-2-link"><i class="fa fa-map-marker tm-home-box-2-icon border-right"></i></a>
+                            <a href="wis panjat/detail-parang.html" class="tm-home-box-2-link"><span class="tm-home-box-2-description box-3">LIHAT</span></a>
+                            <a href="login.html" class="tm-home-box-2-link"><i class="fa fa-ticket tm-home-box-2-icon border-left"></i></a>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="tm-home-box-3">
+                        <div class="tm-home-box-3-img-container">
+                            <img src="img/arjer-2.jpg" alt="image" class="img-responsive">
+                        </div>
+                        <div class="tm-home-box-3-info">
+                            <p class="tm-home-box-3-description">Keterangan wisata alam terpopuler Keterangan wisata alam terpopuler Keterangan wisata alam terpopuler Keterangan wisata alam terpopuler</p>
+                            <div class="tm-home-box-2-container">
+                            <a href="#" class="tm-home-box-2-link"><i class="fa fa-map-marker tm-home-box-2-icon border-right"></i></a>
+                            <a href="wis arjer/detail-elo.html" class="tm-home-box-2-link"><span class="tm-home-box-2-description box-3">LIHAT</span></a>
+                            <a href="login.html" class="tm-home-box-2-link"><i class="fa fa-ticket tm-home-box-2-icon border-left"></i></a>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="tm-home-box-3">
+                        <div class="tm-home-box-3-img-container">
+                            <img src="img/caving-2.jpg" alt="image" class="img-responsive">
+                        </div>
+                        <div class="tm-home-box-3-info">
+                            <p class="tm-home-box-3-description">Keterangan wisata alam terpopuler Keterangan wisata alam terpopuler Keterangan wisata alam terpopuler Keterangan wisata alam terpopuler</p>
+                            <div class="tm-home-box-2-container">
+                            <a href="#" class="tm-home-box-2-link"><i class="fa fa-map-marker tm-home-box-2-icon border-right"></i></a>
+                            <a href="wis goa/detail-jomblang.html" class="tm-home-box-2-link"><span class="tm-home-box-2-description box-3">LIHAT</span></a>
+                            <a href="login.html" class="tm-home-box-2-link"><i class="fa fa-ticket tm-home-box-2-icon border-left"></i></a>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+@endsection
