@@ -7,25 +7,46 @@
   <title>Home</title>
 
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,600,700' rel='stylesheet' type='text/css'>
-  <link href="css/font-awesome.min.css" rel="stylesheet">
-  <link href="css/bootstrap.min.css" rel="stylesheet">
-  <link href="css/bootstrap-datetimepicker.min.css" rel="stylesheet">
-  <link href="css/flexslider.css" rel="stylesheet">
-  <link href="css/style.css" rel="stylesheet">
+  <link href="{{ asset('css/font-awesome.min.css') }}"" rel="stylesheet">
+  <link href="{{ asset('css/bootstrap.min.css') }}"" rel="stylesheet">
+  <link href="{{ asset('css/bootstrap-datetimepicker.min.css') }}"" rel="stylesheet">
+  <link href="{{ asset('css/flexslider.css') }}"" rel="stylesheet">
+  <link href="{{ asset('css/style.css') }}"" rel="stylesheet">
 
   </head>
   <body class="tm-gray-bg">
     <!-- Header -->
     <div class="tm-header">
-                    <nav class="tm-nav">
-                        <ul>
-                            <li><a href="login.html">masuk/daftar</a></li>
-                            <li><a href="contact.html">peta</a></li>
-                            <li><a href="tours.html">bantuan</a></li>
-                            <li><a href="about.html">tentang</a></li>
-                            <li><a href="index.html" class="active">beranda</a></li></ul>
-                            <p>WISATA ALAM BEBAS DI PULAU JAWA</p>
-                    </nav>
+      <nav class="tm-nav">
+          <ul>
+              <li>
+                <a href="{{ route('front.login') }}" class="{{ Request::is('*login') ? 'active':'' }}">
+                  masuk/daftar
+                </a>
+              </li>
+              <li>
+                <a href="{{ route('front.contact') }}" class="{{ Request::is('*contact') ? 'active':'' }}">
+                  peta
+                </a>
+              </li>
+              <li>
+                <a href="{{ route('front.tours') }}" class="{{ Request::is('*tours') ? 'active':'' }}">
+                  bantuan
+                </a>
+              </li>
+              <li>
+                <a href="{{ route('front.about') }}" class="{{ Request::is('*about') ? 'active':'' }}">
+                  tentang
+                </a>
+              </li>
+              <li>
+                <a href="{{ route('front.home') }}" class="{{ Request::is('/') ? 'active':'' }}">
+                  beranda
+                </a>
+              </li>
+            </ul>
+              <p>@yield('page-title')</p>
+      </nav>
     </div>
 
     @yield('content')
@@ -37,16 +58,13 @@
             </div>
         </div>
     </footer>
-    <script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>              <!-- jQuery -->
-    <script type="text/javascript" src="js/moment.js"></script>                         <!-- moment.js -->
-    <script type="text/javascript" src="js/bootstrap.min.js"></script>                  <!-- bootstrap js -->
-    <script type="text/javascript" src="js/bootstrap-datetimepicker.min.js"></script>   <!-- bootstrap date time picker js, http://eonasdan.github.io/bootstrap-datetimepicker/ -->
-    <script type="text/javascript" src="js/jquery.flexslider-min.js"></script>
-<!--
-    <script src="js/froogaloop.js"></script>
-    <script src="js/jquery.fitvid.js"></script>
--->
-    <script type="text/javascript" src="js/templatemo-script.js"></script>              <!-- Templatemo Script -->
+    <script type="text/javascript" src="{{ asset('js/jquery-1.11.2.min.js') }}"></script>              <!-- jQuery -->
+    <script type="text/javascript" src="{{ asset('js/moment.js') }}"></script>                         <!-- moment.js -->
+    <script type="text/javascript" src="{{ asset('js/bootstrap.min.js') }}"></script>                  <!-- bootstrap js -->
+    <script type="text/javascript" src="{{ asset('js/bootstrap-datetimepicker.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/jquery.flexslider-min.js') }}"></script>
+
+    <script type="text/javascript" src="{{ asset('js/templatemo-script.js"') }}"></script>
     <script>
         // HTML document is loaded. DOM is ready.
         $(function() {
@@ -80,52 +98,6 @@
         $(window).load(function() {
             // Vimeo API nonsense
 
-/*
-              var player = document.getElementById('player_1');
-              $f(player).addEvent('ready', ready);
-
-              function addEvent(element, eventName, callback) {
-                if (element.addEventListener) {
-                  element.addEventListener(eventName, callback, false)
-                } else {
-                  element.attachEvent(eventName, callback, false);
-                }
-              }
-
-              function ready(player_id) {
-                var froogaloop = $f(player_id);
-                froogaloop.addEvent('play', function(data) {
-                  $('.flexslider').flexslider("pause");
-                });
-                froogaloop.addEvent('pause', function(data) {
-                  $('.flexslider').flexslider("play");
-                });
-              }
-*/
-
-
-
-              // Call fitVid before FlexSlider initializes, so the proper initial height can be retrieved.
-/*
-
-              $(".flexslider")
-                .fitVids()
-                .flexslider({
-                  animation: "slide",
-                  useCSS: false,
-                  animationLoop: false,
-                  smoothHeight: true,
-                  controlNav: false,
-                  before: function(slider){
-                    $f(player).api('pause');
-                  }
-              });
-*/
-
-
-
-
-//  For images only
             $('.flexslider').flexslider({
                 controlNav: false
             });

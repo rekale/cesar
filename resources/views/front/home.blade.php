@@ -1,5 +1,9 @@
 @extends('front.layouts.app')
 
+@section('page-title')
+    WISATA ALAM BEBAS DI PULAU JAWA
+@endsection
+
 @section('content')
 
     <!-- Banner -->
