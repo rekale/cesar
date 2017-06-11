@@ -12,17 +12,40 @@
   <link href="{{ asset('css/bootstrap-datetimepicker.min.css') }}"" rel="stylesheet">
   <link href="{{ asset('css/flexslider.css') }}"" rel="stylesheet">
   <link href="{{ asset('css/style.css') }}"" rel="stylesheet">
-
+  <style type="text/css">
+    #flash {
+      position: fixed;
+      top: 40em;
+      right: 2em;
+      width: 18em;
+    }
+  </style>
   </head>
   <body class="tm-gray-bg">
     <!-- Header -->
     <div class="tm-header">
       <nav class="tm-nav">
           <ul>
-              <li>
-                <a href="{{ route('front.login') }}" class="{{ Request::is('*login') ? 'active':'' }}">
-                  masuk/daftar
-                </a>
+                @if(Auth::check())
+                  <li>
+                    <a href="{{ route('front.logout') }}">
+                      <span class="glyphicon glyphicon-off"></span>
+                        Logout
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <span class="glyphicon glyphicon-user"></span>
+                      {{ Auth::user()->name }}
+                    </a>
+                  </li>
+                @else
+                  <li>
+                    <a href="{{ route('front.login') }}" class="{{ Request::is('*login') ? 'active':'' }}">
+                      masuk/daftar
+                    </a>
+                  </li>
+                @endif
               </li>
               <li>
                 <a href="{{ route('front.contact') }}" class="{{ Request::is('*contact') ? 'active':'' }}">
@@ -45,11 +68,13 @@
                 </a>
               </li>
             </ul>
-              <p>@yield('page-title')</p>
+              <p style="font-size: 20px">@yield('page-title')</p>
       </nav>
     </div>
-
-    @yield('content')
+    <div class="container-fluid">
+      @include('flash::message')
+      @yield('content')
+    </div>
 
     <footer class="tm-black-bg">
         <div class="container">
@@ -68,6 +93,7 @@
     <script>
         // HTML document is loaded. DOM is ready.
         $(function() {
+            $('div.alert').not('.alert-important').delay(3000).fadeOut(350);
 
             $('#hotelCarTabs a').click(function (e) {
               e.preventDefault()

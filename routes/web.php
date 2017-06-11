@@ -22,7 +22,7 @@ Route::group(['as' => 'front.', 'namespace' => 'Front'], function(){
       'as' => 'login.post',
       'uses' => 'Auth\LoginController@login'
     ]);
-    Route::post('front.logout', [
+    Route::get('logout', [
       'as' => 'logout',
       'uses' => 'Auth\LoginController@logout'
     ]);

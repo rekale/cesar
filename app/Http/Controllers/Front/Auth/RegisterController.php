@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Front\Auth;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
 
 class RegisterController extends Controller
 {
@@ -27,7 +29,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -49,8 +51,19 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'name' => 'required|string|max:255',
+            'username' => 'required|string|max:255|unique:users',
             'email' => 'required|string|email|max:255|unique:users',
+            'sex' => ['required', Rule::in(['pria', 'wanita'])],
+            'birthday' => 'required|date',
+            'nik' => 'required|digits:16',
+            'address' => 'required',
+            'city' => 'required|max:255',
+            'pos_code' => 'required|digits:5',
+            'phone' => 'required',
+            'no_rek' => 'required',
+            'name_rek' => 'required|max:255',
             'password' => 'required|string|min:6|confirmed',
+            'terms' => 'required',
         ]);
     }
 
@@ -64,7 +77,17 @@ class RegisterController extends Controller
     {
         return User::create([
             'name' => $data['name'],
+            'username' => $data['username'],
             'email' => $data['email'],
+            'sex' => $data['sex'],
+            'birthday' => $data['birthday'],
+            'nik' => $data['nik'],
+            'address' => $data['address'],
+            'city' => $data['city'],
+            'pos_code' => $data['pos_code'],
+            'phone' => $data['phone'],
+            'no_rek' => $data['no_rek'],
+            'name_rek' => $data['name_rek'],
             'password' => bcrypt($data['password']),
         ]);
     }
@@ -72,5 +95,13 @@ class RegisterController extends Controller
     public function showRegistrationForm()
     {
         return view('front.auth.register');
+    }
+
+    protected function registered(Request $request, $user)
+    {
+        $name = $user['name'];
+        flash("Your account has been registered, welcome {$name} !")->success();
+
+        return redirect()->route('front.home');
     }
 }
