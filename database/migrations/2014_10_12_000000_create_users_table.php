@@ -22,6 +22,7 @@ class CreateUsersTable extends Migration
             $table->date('birthday');
             $table->bigInteger('nik');
             $table->text('address');
+            $table->string('city');
             $table->mediumInteger('pos_code');
             $table->string('phone');
             $table->string('no_rek');

@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -22,6 +22,7 @@ class User extends Authenticatable
         'birthday',
         'nik',
         'address',
+        'city',
         'pos_code',
         'phone',
         'no_rek',
