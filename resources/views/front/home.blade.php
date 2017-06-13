@@ -58,50 +58,21 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-xxs-12">
-                    <div class="tm-home-box-2">
-                        <img src="img/gunung-1.jpg" alt="image" class="img-responsive">
-                        <h3>Wisata Alam Bebas Pendakian Gunung</h3>
-                        <div class="tm-home-box-2-container">
-                            <i class="fa fa-paw tm-home-box-2-icon border-right"></i>
-                            <a href="wis gunung/daftar-gunung.html" class="tm-home-box-2-link"><span class="tm-home-box-2-description">LIHAT</span></a>
-                            <i class="fa fa-paw tm-home-box-2-icon border-left"></i>
+                @foreach($categories as $category)
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-xxs-12">
+                        <div class="tm-home-box-2">
+                            <img src="{{ $category->image }}" alt="image" class="img-responsive">
+                            <h3>{{ $category->name }}</h3>
+                            <div class="tm-home-box-2-container">
+                                <i class="fa fa-paw tm-home-box-2-icon border-right"></i>
+                                <a href="{{ route('front.destination.category-list', ['category' => str_slug($category->name)]) }}" class="tm-home-box-2-link">
+                                    <span class="tm-home-box-2-description">LIHAT</span>
+                                </a>
+                                <i class="fa fa-paw tm-home-box-2-icon border-left"></i>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-xxs-12">
-                    <div class="tm-home-box-2">
-                        <img src="img/panjat-1.jpg" alt="image" class="img-responsive">
-                        <h3>Wisata Alam Bebas Panjat Tebing</h3>
-                        <div class="tm-home-box-2-container">
-                            <i class="fa fa-paw tm-home-box-2-icon border-right"></i>
-                            <a href="wis panjat/daftar-panjat.html" class="tm-home-box-2-link"><span class="tm-home-box-2-description">LIHAT</span></a>
-                            <i class="fa fa-paw tm-home-box-2-icon border-left"></i>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-xxs-12">
-                    <div class="tm-home-box-2">
-                        <img src="img/arjer-1.jpg" alt="image" class="img-responsive">
-                        <h3>Wisata Alam Bebas Arung Jeram</h3>
-                        <div class="tm-home-box-2-container">
-                            <i class="fa fa-paw tm-home-box-2-icon border-right"></i>
-                            <a href="wis arjer/daftar-arjer.html" class="tm-home-box-2-link"><span class="tm-home-box-2-description">LIHAT</span></a>
-                            <i class="fa fa-paw tm-home-box-2-icon border-left"></i>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-xxs-12">
-                    <div class="tm-home-box-2 tm-home-box-2-right">
-                        <img src="img/caving-1.jpg" alt="image" class="img-responsive">
-                        <h3>Wisata Alam Bebas Susur Goa</h3>
-                        <div class="tm-home-box-2-container">
-                            <i class="fa fa-paw tm-home-box-2-icon border-right"></i>
-                            <a href="wis goa/daftar-goa.html" class="tm-home-box-2-link"><span class="tm-home-box-2-description">LIHAT</span></a>
-                            <i class="fa fa-paw tm-home-box-2-icon border-left"></i>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
             <div class="row">
                 <div class="col-lg-12">
