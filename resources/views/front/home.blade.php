@@ -61,7 +61,7 @@
                 @foreach($categories as $category)
                     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-xxs-12">
                         <div class="tm-home-box-2">
-                            <img src="{{ $category->image }}" alt="image" class="img-responsive">
+                            <img src="{{ $category->image->link }}" alt="image" class="img-responsive">
                             <h3>{{ $category->detail_name }}</h3>
                             <div class="tm-home-box-2-container">
                                 <i class="fa fa-paw tm-home-box-2-icon border-right"></i>
