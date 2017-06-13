@@ -62,7 +62,7 @@
                     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-xxs-12">
                         <div class="tm-home-box-2">
                             <img src="{{ $category->image }}" alt="image" class="img-responsive">
-                            <h3>{{ $category->name }}</h3>
+                            <h3>{{ $category->detail_name }}</h3>
                             <div class="tm-home-box-2-container">
                                 <i class="fa fa-paw tm-home-box-2-icon border-right"></i>
                                 <a href="{{ route('front.destination.category-list', ['category' => str_slug($category->name)]) }}" class="tm-home-box-2-link">

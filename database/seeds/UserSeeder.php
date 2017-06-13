@@ -13,7 +13,8 @@ class UserSeeder extends Seeder
     public function run()
     {
         factory(User::class)->create([
-            'username' => 'rekale'
+            'name' => 'admin',
+            'username' => 'admin',
         ]);
 
         factory(User::class, 20)->create();

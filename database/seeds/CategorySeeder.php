@@ -13,19 +13,23 @@ class CategorySeeder extends Seeder
     public function run()
     {
         Category::create([
-            'name' => 'WISATA ALAM BEBAS PENDAKIAN GUNUNG',
+            'detail_name' => 'WISATA ALAM BEBAS PENDAKIAN GUNUNG',
+            'name' => 'Wisata Gunung',
             'image' => 'https://d1o6t6wdv45461.cloudfront.net/s4/fm/120/newsletter/gunung-1.jpg',
         ]);
         Category::create([
-            'name' => 'WISATA ALAM BEBAS PANJAT TEBING',
+            'detail_name' => 'WISATA ALAM BEBAS PANJAT TEBING',
+            'name' => 'Wisata Tebing',
             'image' => 'https://d1o6t6wdv45461.cloudfront.net/s4/fm/120/newsletter/panjat-1.jpg',
         ]);
         Category::create([
-            'name' => 'WISATA ALAM BEBAS ARUNG JERAM',
+            'detail_name' => 'WISATA ALAM BEBAS ARUNG JERAM',
+            'name' => 'Wisata Arung jeram',
             'image' => 'https://d1o6t6wdv45461.cloudfront.net/s4/fm/120/newsletter/arjer-1.jpg',
         ]);
         Category::create([
-            'name' => 'WISATA ALAM BEBAS SUSUR GOA',
+            'detail_name' => 'WISATA ALAM BEBAS SUSUR GOA',
+            'name' => 'Wisata Goa',
             'image' => 'https://d1o6t6wdv45461.cloudfront.net/s4/fm/120/newsletter/caving-1.jpg',
         ]);
     }
