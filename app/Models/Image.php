@@ -8,6 +8,5 @@ class Image extends Model
 {
     protected $fillable = [
         'link',
-        'primary',
     ];
 }

@@ -32,3 +32,19 @@ $factory->define(App\Models\User::class, function (Faker\Generator $faker) {
         'remember_token' => str_random(10),
     ];
 });
+
+$factory->define(App\Models\Image::class, function (Faker\Generator $faker) {
+    return [
+        'link' => $faker->imageUrl(640, 480, 'nature'),
+    ];
+});
+
+$factory->define(App\Models\Destination::class, function (Faker\Generator $faker) {
+    return [
+        'title' => $faker->words(3, true),
+        'category_id' => '1',
+        'thumbnail_image' => $faker->imageUrl(640, 480, 'nature'),
+        'abstract' => $faker->sentence(),
+        'description' => $faker->paragraph(),
+    ];
+});

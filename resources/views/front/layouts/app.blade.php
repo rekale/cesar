@@ -19,6 +19,10 @@
       right: 2em;
       width: 18em;
     }
+    .tm-home-box-3-img-container img {
+      width: 250px;
+      height: 225px;
+    }
   </style>
   </head>
   <body class="tm-gray-bg">

@@ -4,15 +4,17 @@ namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\Destination;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
 {
-    public function home(Category $category)
+    public function home(Category $category, Destination $destination)
     {
-        $categories = $category->all();
+        $categories = $category->with('image')->get();
+        $destinations = $destination->latest()->take(4)->get();
 
-        return view('front.home', compact('categories'));
+        return view('front.home', compact('categories', 'destinations'));
     }
 
     public function about()

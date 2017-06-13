@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
     protected $seeds = [
         UserSeeder::class,
         CategorySeeder::class,
+        DestinationSeeder::class,
     ];
     /**
      * Run the database seeds.

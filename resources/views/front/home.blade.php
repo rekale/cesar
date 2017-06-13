@@ -91,66 +91,29 @@
                     <div class="col-lg-4 col-md-6 col-sm-6"><h2 class="tm-section-title">WISATA ALAM BEBAS TERPOPULER</h2></div>
                     <div class="col-lg-4 col-md-3 col-sm-3"><hr></div>
                 </div>
-                <div class="col-lg-6">
-                    <div class="tm-home-box-3">
-                        <div class="tm-home-box-3-img-container">
-                            <img src="img/gunung-2.jpg" alt="image" class="img-responsive">
+                @foreach($destinations as $destination)
+                    <div class="col-lg-6">
+                        <div class="tm-home-box-3">
+                            <div class="tm-home-box-3-img-container">
+                                <img src="{{ $destination->thumbnail_image }}" alt="image" class="img-responsive">
+                            </div>
+                            <div class="tm-home-box-3-info">
+                                <p class="tm-home-box-3-description">{{ $destination->abstract }}</p>
+                                <div class="tm-home-box-2-container">
+                                <a href="#" class="tm-home-box-2-link">
+                                    <i class="fa fa-map-marker tm-home-box-2-icon border-right"></i>
+                                </a>
+                                <a href="{{ route('front.destination.show', ['title' => str_slug($destination->title)]) }}" class="tm-home-box-2-link">
+                                    <span class="tm-home-box-2-description box-3">LIHAT</span>
+                                </a>
+                                <a href="login.html" class="tm-home-box-2-link">
+                                    <i class="fa fa-ticket tm-home-box-2-icon border-left"></i>
+                                </a>
+                            </div>
+                            </div>
                         </div>
-                        <div class="tm-home-box-3-info">
-                            <p class="tm-home-box-3-description">Keterangan wisata alam terpopuler Keterangan wisata alam terpopuler Keterangan wisata alam terpopuler Keterangan wisata alam terpopuler</p>
-                            <div class="tm-home-box-2-container">
-                            <a href="#" class="tm-home-box-2-link"><i class="fa fa-map-marker tm-home-box-2-icon border-right"></i></a>
-                            <a href="wis gunung/detail-raung.html" class="tm-home-box-2-link"><span class="tm-home-box-2-description box-3">LIHAT</span></a>
-                            <a href="login.html" class="tm-home-box-2-link"><i class="fa fa-ticket tm-home-box-2-icon border-left"></i></a>
-                        </div>
-                        </div>
-                    </div>
-                 </div>
-                 <div class="col-lg-6">
-                    <div class="tm-home-box-3">
-                        <div class="tm-home-box-3-img-container">
-                            <img src="img/panjat-2.jpg" alt="image" class="img-responsive">
-                        </div>
-                        <div class="tm-home-box-3-info">
-                            <p class="tm-home-box-3-description">Keterangan wisata alam terpopuler Keterangan wisata alam terpopuler Keterangan wisata alam terpopuler Keterangan wisata alam terpopuler</p>
-                            <div class="tm-home-box-2-container">
-                            <a href="#" class="tm-home-box-2-link"><i class="fa fa-map-marker tm-home-box-2-icon border-right"></i></a>
-                            <a href="wis panjat/detail-parang.html" class="tm-home-box-2-link"><span class="tm-home-box-2-description box-3">LIHAT</span></a>
-                            <a href="login.html" class="tm-home-box-2-link"><i class="fa fa-ticket tm-home-box-2-icon border-left"></i></a>
-                        </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="tm-home-box-3">
-                        <div class="tm-home-box-3-img-container">
-                            <img src="img/arjer-2.jpg" alt="image" class="img-responsive">
-                        </div>
-                        <div class="tm-home-box-3-info">
-                            <p class="tm-home-box-3-description">Keterangan wisata alam terpopuler Keterangan wisata alam terpopuler Keterangan wisata alam terpopuler Keterangan wisata alam terpopuler</p>
-                            <div class="tm-home-box-2-container">
-                            <a href="#" class="tm-home-box-2-link"><i class="fa fa-map-marker tm-home-box-2-icon border-right"></i></a>
-                            <a href="wis arjer/detail-elo.html" class="tm-home-box-2-link"><span class="tm-home-box-2-description box-3">LIHAT</span></a>
-                            <a href="login.html" class="tm-home-box-2-link"><i class="fa fa-ticket tm-home-box-2-icon border-left"></i></a>
-                        </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="tm-home-box-3">
-                        <div class="tm-home-box-3-img-container">
-                            <img src="img/caving-2.jpg" alt="image" class="img-responsive">
-                        </div>
-                        <div class="tm-home-box-3-info">
-                            <p class="tm-home-box-3-description">Keterangan wisata alam terpopuler Keterangan wisata alam terpopuler Keterangan wisata alam terpopuler Keterangan wisata alam terpopuler</p>
-                            <div class="tm-home-box-2-container">
-                            <a href="#" class="tm-home-box-2-link"><i class="fa fa-map-marker tm-home-box-2-icon border-right"></i></a>
-                            <a href="wis goa/detail-jomblang.html" class="tm-home-box-2-link"><span class="tm-home-box-2-description box-3">LIHAT</span></a>
-                            <a href="login.html" class="tm-home-box-2-link"><i class="fa fa-ticket tm-home-box-2-icon border-left"></i></a>
-                        </div>
-                        </div>
-                    </div>
-                </div>
+                     </div>
+                 @endforeach
             </div>
         </div>
     </section>
