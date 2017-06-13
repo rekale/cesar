@@ -12,6 +12,7 @@ class DatabaseSeeder extends Seeder
 
 
     protected $seeds = [
+        UserSeeder::class,
         CategorySeeder::class,
     ];
     /**
