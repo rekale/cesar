@@ -15,94 +15,35 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                    <div class="tm-tours-box-1">
-                        <img src="img/banner-citatah1.jpg" alt="image" class="img-responsive">
-                        <div class="tm-tours-box-1-info">
-                            <div class="tm-tours-box-1-info-left">
-                                <p class="text-uppercase margin-bottom-20">TEBING CITATAH</p>
-                                <p class="gray-text">Jawa Barat</p>
-                            </div>
-                            <div class="tm-tours-box-1-info-right">
-                                <p class="gray-text tours-1-description">keterangan singkat.</p>
-                            </div>
-                        </div>
-                        <div class="tm-tours-box-1-link">
-                            <div class="tm-tours-box-1-link-left">
-                                Wisata Tebing
-                            </div>
-                            <a href="detail-citatah.html" class="tm-tours-box-1-link-right">
-                                LIHAT
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                    <div class="tm-tours-box-1">
-                        <img src="img/banner-parang1.jpg" alt="image" class="img-responsive">
-                        <div class="tm-tours-box-1-info">
-                            <div class="tm-tours-box-1-info-left">
-                                <p class="text-uppercase margin-bottom-20">TEBING PARANG</p>
-                                <p class="gray-text">Purwakarta Jawa Barat</p>
-                            </div>
-                            <div class="tm-tours-box-1-info-right">
-                                <p class="gray-text tours-1-description">keterangan singkat.</p>
+                @if(! $destinations->isEmpty())
+                    @foreach($destinations as $destination)
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <div class="tm-tours-box-1">
+                                <img src="{{ $destination->thumbnail_image }}" alt="image" class="img-responsive">
+                                <div class="tm-tours-box-1-info">
+                                    <div class="tm-tours-box-1-info-left">
+                                        <p class="text-uppercase margin-bottom-20">{{ $destination->title }}</p>
+                                        <p class="gray-text">{{ $destination->location }}</p>
+                                    </div>
+                                    <div class="tm-tours-box-1-info-right">
+                                        <p class="gray-text tours-1-description">{{ $destination->abstract }}</p>
+                                    </div>
+                                </div>
+                                <div class="tm-tours-box-1-link">
+                                    <div class="tm-tours-box-1-link-left">
+                                        {{ $category->name }}
+                                    </div>
+                                    <a href="{{ route('front.destination.show', ['title' => str_slug($destination->title)]) }}" class="tm-tours-box-1-link-right">
+                                        LIHAT
+                                    </a>
+                                </div>
                             </div>
                         </div>
-                        <div class="tm-tours-box-1-link">
-                            <div class="tm-tours-box-1-link-left">
-                                Wisata Tebing
-                            </div>
-                            <a href="detail-parang.html" class="tm-tours-box-1-link-right">
-                                LIHAT
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                    <div class="tm-tours-box-1">
-                        <img src="img/banner-sawarna1.jpg" alt="image" class="img-responsive">
-                        <div class="tm-tours-box-1-info">
-                            <div class="tm-tours-box-1-info-left">
-                                <p class="text-uppercase margin-bottom-20">TEBING SAWARNA</p>
-                                <p class="gray-text">Lebak Banten</p>
-                            </div>
-                            <div class="tm-tours-box-1-info-right">
-                                <p class="gray-text tours-1-description">keterangan singkat.</p>
-                            </div>
-                        </div>
-                        <div class="tm-tours-box-1-link">
-                            <div class="tm-tours-box-1-link-left">
-                                Wisata Tebing
-                            </div>
-                            <a href="detail-sawarna.html" class="tm-tours-box-1-link-right">
-                                LIHAT
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                    <div class="tm-tours-box-1">
-                        <img src="img/banner-siung1.jpg" alt="image" class="img-responsive">
-                        <div class="tm-tours-box-1-info">
-                            <div class="tm-tours-box-1-info-left">
-                                <p class="text-uppercase margin-bottom-20">TEBING SIUNG</p>
-                                <p class="gray-text">Gunung Kidul Yogyakarta</p>
-                            </div>
-                            <div class="tm-tours-box-1-info-right">
-                                <p class="gray-text tours-1-description">keterangan singkat.</p>
-                            </div>
-                        </div>
-                        <div class="tm-tours-box-1-link">
-                            <div class="tm-tours-box-1-link-left">
-                                Wisata Tebing
-                            </div>
-                            <a href="detail-siung.html" class="tm-tours-box-1-link-right">
-                                LIHAT
-                            </a>
-                        </div>
-                    </div>
-                </div>
+                    @endforeach
+                    {{ $destinations->links() }}
+                @else
+                    <center><p class="text-muted">Tidak ada destinasi di kategori ini.</p></center>
+                @endif
             </div>
         </div>
     </section>

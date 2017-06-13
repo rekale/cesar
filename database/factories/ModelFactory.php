@@ -46,5 +46,6 @@ $factory->define(App\Models\Destination::class, function (Faker\Generator $faker
         'thumbnail_image' => $faker->imageUrl(640, 480, 'nature'),
         'abstract' => $faker->sentence(),
         'description' => $faker->paragraph(),
+        'location' => $faker->country,
     ];
 });

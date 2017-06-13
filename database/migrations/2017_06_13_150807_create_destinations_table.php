@@ -19,6 +19,7 @@ class CreateDestinationsTable extends Migration
             $table->string('title');
             $table->string('thumbnail_image');
             $table->string('abstract');
+            $table->string('location');
             $table->text('description');
             $table->timestamps();
 

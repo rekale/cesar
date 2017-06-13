@@ -23,6 +23,17 @@
       width: 250px;
       height: 225px;
     }
+    .tm-tours-box-1 img {
+      width: 530px;
+      height: 238px;
+    }
+    .tm-tours-box-1-info {
+      height: 10em;
+    }
+    .banner {
+      width: 1280px !important;
+      height: 480px !important;
+    }
   </style>
   </head>
   <body class="tm-gray-bg">
@@ -32,9 +43,12 @@
           <ul>
                 @if(Auth::check())
                   <li>
-                    <a href="{{ route('front.logout') }}">
+                    <a href="#" onclick="$('#logout').submit()">
                       <span class="glyphicon glyphicon-off"></span>
                         Logout
+                        <form action="{{ route('logout') }}" id="logout" method="POST">
+                           {{ csrf_field() }}
+                        </form>
                     </a>
                   </li>
                   <li>
@@ -45,7 +59,7 @@
                   </li>
                 @else
                   <li>
-                    <a href="{{ route('front.login') }}" class="{{ Request::is('*login') ? 'active':'' }}">
+                    <a href="{{ route('login') }}" class="{{ Request::is('*login') ? 'active':'' }}">
                       masuk/daftar
                     </a>
                   </li>
@@ -72,7 +86,9 @@
                 </a>
               </li>
             </ul>
-              <p style="font-size: 20px">@yield('page-title')</p>
+              <p style="font-size: 20px">
+                <a href="{{ route('front.home') }}" style="color: #FCDD44">@yield('page-title')</a>
+              </p>
       </nav>
     </div>
     <div class="container-fluid">

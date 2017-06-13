@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
+use App\Models\Destination;
 use Illuminate\Http\Request;
 
 class DestinationController extends Controller
@@ -12,13 +14,21 @@ class DestinationController extends Controller
 
     }
 
-    public function show($slug)
+    public function show($slug, Destination $destModel)
     {
-        return view('front.show');
+        $title = implode(' ', explode('-', $slug));
+        $destination = $destModel->with('images')->whereTitle($title)->first();
+
+        return view('front.show', compact('destination'));
     }
 
-    public function listByCategory($category)
+    public function listByCategory($slug, Category $catModel)
     {
-        return view('front.category-list');
+        $name = implode(' ', explode('-', $slug));
+
+        $category = $catModel->whereName($name)->first();
+        $destinations = $category->destinations()->latest()->paginate(6);
+
+        return view('front.category-list', compact('destinations', 'category'));
     }
 }

@@ -13,6 +13,7 @@ class Destination extends Model
         'category_id',
         'abstract',
         'description',
+        'location',
     ];
 
     public function images()

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Front\Auth;
+namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
@@ -90,11 +90,6 @@ class RegisterController extends Controller
             'name_rek' => $data['name_rek'],
             'password' => bcrypt($data['password']),
         ]);
-    }
-
-    public function showRegistrationForm()
-    {
-        return view('front.auth.register');
     }
 
     protected function registered(Request $request, $user)
