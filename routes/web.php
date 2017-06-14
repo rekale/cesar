@@ -14,8 +14,6 @@
 Auth::Routes();
 
 Route::group(['as' => 'front.', 'namespace' => 'Front'], function(){
-
-
     Route::get('/', [
       'as' => 'home',
       'uses' => 'PageController@home',
@@ -40,4 +38,11 @@ Route::group(['as' => 'front.', 'namespace' => 'Front'], function(){
       'as' => 'destination.show',
       'uses' => 'DestinationController@show',
      ]);
+});
+
+Route::group(['as' => 'admin.', 'namespace' => 'Admin', 'prefix' => 'admin'], function(){
+    Route::get('/',[
+        'as' => 'dashboard',
+        'uses' => 'DashboardController@index',
+    ]);
 });
