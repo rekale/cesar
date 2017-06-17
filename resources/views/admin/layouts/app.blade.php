@@ -18,7 +18,7 @@
 </head>
 
 <body class="skin-blue sidebar-mini">
-@if (!Auth::guest())
+@if (!Auth::guard('backend')->guest())
     <div class="wrapper">
         <!-- Main Header -->
         <header class="main-header">
@@ -45,7 +45,7 @@
                                 {{-- <img src="http://infyom.com/images/logo/blue_logo_150x150.jpg"
                                      class="user-image" alt="User Image"/> --}}
                                 <!-- hidden-xs hides the username on small devices so only the image appears. -->
-                                <span class="hidden-xs">{!! Auth::user()->name !!}</span>
+                                <span class="hidden-xs">{!! Auth::guard('backend')->user()->email !!}</span>
                             </a>
                             <ul class="dropdown-menu">
                                 <!-- The user image in the menu -->
@@ -53,20 +53,20 @@
                                     {{-- <img src="http://infyom.com/images/logo/blue_logo_150x150.jpg"
                                          class="img-circle" alt="User Image"/>
                                      --}}<p>
-                                        {!! Auth::user()->name !!}
-                                        <small>Member since {!! Auth::user()->created_at->format('M. Y') !!}</small>
+                                        {!! Auth::guard('backend')->user()->email !!}
+                                        <small>Member since {!! Auth::guard('backend')->user()->created_at->format('M. Y') !!}</small>
                                     </p>
                                 </li>
                                 <!-- Menu Footer-->
                                 <li class="user-footer">
                                     <div>
                                         <center>
-                                        <a href="{!! url('/logout') !!}" class="btn btn-default btn-flat"
+                                        <a href="{!! route('admin.logout') !!}" class="btn btn-default btn-flat"
                                             onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                             Sign out
                                         </a>
                                         </center>
-                                        <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                                        <form id="logout-form" action="{{ route('admin.logout') }}" method="POST" style="display: none;">
                                             {{ csrf_field() }}
                                         </form>
                                     </div>

@@ -45,4 +45,17 @@ Route::group(['as' => 'admin.', 'namespace' => 'Admin', 'prefix' => 'admin'], fu
         'as' => 'dashboard',
         'uses' => 'DashboardController@index',
     ]);
+
+    Route::get('/login', [
+        'as' => 'login',
+        'uses' => 'SessionController@loginform',
+    ]);
+    Route::post('/login', [
+        'as' => 'login.post',
+        'uses' => 'SessionController@authenticate',
+    ]);
+    Route::post('/logout', [
+        'as' => 'logout',
+        'uses' => 'SessionController@logout',
+    ]);
 });

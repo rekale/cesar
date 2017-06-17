@@ -14,6 +14,16 @@
                     <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
                         <div class="panel panel-default">
                             <div class="panel-body">
+                                @if($errors->any())
+                                <div class="alert alert-danger">
+                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                        <ul>
+                                            @foreach($errors->all() as $error)
+                                                <li>{{ $error }}</li>
+                                            @endforeach
+                                        </ul>
+                                </div>
+                                @endif
                                 <h3 class="thin text-center">Sign in to your account</h3>
                                 <p class="text-center text-muted">Jika belum memiliki akun, silahkan daftar <a href="{{ route('register') }}">di sini.</a></p>
                                 <hr>

@@ -36,12 +36,11 @@
     <div class="login-logo">
         <a href="{{ url('/home') }}"><b>Admin</a>
     </div>
-
+    @include('flash::message')
     <!-- /.login-logo -->
     <div class="login-box-body">
         <p class="login-box-msg">Sign in to start your session</p>
-
-        <form method="post" action="{{ route('login') }}">
+        <form method="post" action="{{ route('admin.login.post') }}">
             {!! csrf_field() !!}
 
             <div class="form-group has-feedback {{ $errors->has('email') ? ' has-error' : '' }}">

@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Admin;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 
@@ -18,5 +19,10 @@ class UserSeeder extends Seeder
         ]);
 
         factory(User::class, 20)->create();
+
+        Admin::create([
+            'email' => 'admin@test.com',
+            'password' => bcrypt('secret'),
+        ]);
     }
 }
