@@ -41,10 +41,6 @@ Route::group(['as' => 'front.', 'namespace' => 'Front'], function(){
 });
 
 Route::group(['as' => 'admin.', 'namespace' => 'Admin', 'prefix' => 'admin'], function(){
-    Route::get('/',[
-        'as' => 'dashboard',
-        'uses' => 'DashboardController@index',
-    ]);
 
     Route::get('/login', [
         'as' => 'login',
@@ -58,4 +54,12 @@ Route::group(['as' => 'admin.', 'namespace' => 'Admin', 'prefix' => 'admin'], fu
         'as' => 'logout',
         'uses' => 'SessionController@logout',
     ]);
+
+    Route::group(['middleware' => 'auth:backend'], function() {
+        Route::get('/',[
+            'as' => 'dashboard',
+            'uses' => 'DashboardController@index',
+        ]);
+
+    });
 });

@@ -8,6 +8,16 @@ use Illuminate\Support\Facades\Auth;
 
 class SessionController extends Controller
 {
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('guest:backend')->except('logout');
+    }
+
     public function loginform()
     {
         return view('admin.login');
