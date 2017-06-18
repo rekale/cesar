@@ -88,5 +88,31 @@ Route::group(['as' => 'admin.', 'namespace' => 'Admin', 'prefix' => 'admin'], fu
             'uses' => 'CategoryController@destroy',
         ]);
 
+        //destinations
+        Route::get('destinations', [
+            'as' => 'destinations.index',
+            'uses' => 'DestinationController@index',
+        ]);
+        Route::get('destinations/create', [
+            'as' => 'destinations.create',
+            'uses' => 'DestinationController@create',
+        ]);
+        Route::post('destinations', [
+            'as' => 'destinations.store',
+            'uses' => 'DestinationController@store',
+        ]);
+        Route::get('destinations/{id}/edit', [
+            'as' => 'destinations.edit',
+            'uses' => 'DestinationController@edit',
+        ]);
+        Route::put('destinations/{id}/edit', [
+            'as' => 'destinations.update',
+            'uses' => 'DestinationController@update',
+        ]);
+        Route::delete('destinations/{id}/destroy', [
+            'as' => 'destinations.destroy',
+            'uses' => 'DestinationController@destroy',
+        ]);
+
     });
 });

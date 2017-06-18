@@ -31,7 +31,7 @@
                         <div class="detail-text">
                             <h2 class="slider-title">{{ $destination->title }}</h2>
                             <h3 class="slider-subtitle">Informasi Umum</h3>
-                            <p class="slider-description">{{ $destination->description }}</p>
+                            <p class="slider-description">{!! $destination->description !!}</p>
 
                             <div class="slider-social">
                                 <a href="../login.html" class="tm-social-icon"><i class="fa fa-ticket"></i></a>

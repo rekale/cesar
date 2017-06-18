@@ -7,6 +7,7 @@ class DatabaseSeeder extends Seeder
 
     protected $tables = [
         'users',
+        'admins',
         'categories',
         'destinations',
         'images',
