@@ -25,7 +25,7 @@
 
             <!-- Logo -->
             <a href="#" class="logo">
-                <b>Puri Baja Sejahtera</b>
+                <b>Pariwisata</b>
             </a>
 
             <!-- Header Navbar -->
@@ -82,13 +82,9 @@
         @include('admin.layouts.sidebar')
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
+            @include('flash::message')
             @yield('content')
         </div>
-
-        <!-- Main Footer -->
-        <footer class="main-footer" style="max-height: 100px;text-align: center">
-            <strong>Copyright © 2016 <a href="#">Company</a>.</strong> All rights reserved.
-        </footer>
 
     </div>
 @else

@@ -56,9 +56,36 @@ Route::group(['as' => 'admin.', 'namespace' => 'Admin', 'prefix' => 'admin'], fu
     ]);
 
     Route::group(['middleware' => 'auth:backend'], function() {
+
         Route::get('/',[
             'as' => 'dashboard',
             'uses' => 'DashboardController@index',
+        ]);
+
+        //categories
+        Route::get('categories', [
+            'as' => 'categories.index',
+            'uses' => 'CategoryController@index',
+        ]);
+        Route::get('categories/create', [
+            'as' => 'categories.create',
+            'uses' => 'CategoryController@create',
+        ]);
+        Route::post('categories', [
+            'as' => 'categories.store',
+            'uses' => 'CategoryController@store',
+        ]);
+        Route::get('categories/{id}/edit', [
+            'as' => 'categories.edit',
+            'uses' => 'CategoryController@edit',
+        ]);
+        Route::put('categories/{id}/edit', [
+            'as' => 'categories.update',
+            'uses' => 'CategoryController@update',
+        ]);
+        Route::delete('categories/{id}/destroy', [
+            'as' => 'categories.destroy',
+            'uses' => 'CategoryController@destroy',
         ]);
 
     });
