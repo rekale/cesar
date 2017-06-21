@@ -63,8 +63,11 @@ class DestinationController extends Controller
     public function update($id, Request $request)
     {
         $input = $request->only('title', 'category_id', 'location', 'abstract', 'description');
-        $path = $request->file('thumbnail_image')->store('destinations', 'public');
-        $input['thumbnail_image'] = "/storage/{$path}";
+
+        if ($request->hasFile('thumbnail_image')) {
+            $path = $request->file('thumbnail_image')->store('destinations', 'public');
+            $input['thumbnail_image'] = "/storage/{$path}";
+        }
 
         $this->destinationRepo->whereId($id)->update($input);
 
