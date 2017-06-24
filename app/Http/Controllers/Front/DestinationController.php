@@ -16,8 +16,7 @@ class DestinationController extends Controller
 
     public function show($slug, Destination $destModel)
     {
-        $title = implode(' ', explode('-', $slug));
-        $destination = $destModel->with('images')->whereTitle($title)->first();
+        $destination = $destModel->with('banners')->whereSlug($slug)->firstOrFail();
 
         return view('front.show', compact('destination'));
     }

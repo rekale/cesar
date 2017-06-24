@@ -33,15 +33,17 @@ $factory->define(App\Models\User::class, function (Faker\Generator $faker) {
     ];
 });
 
-$factory->define(App\Models\Image::class, function (Faker\Generator $faker) {
+$factory->define(App\Models\Banner::class, function (Faker\Generator $faker) {
     return [
         'link' => $faker->imageUrl(640, 480, 'nature'),
     ];
 });
 
 $factory->define(App\Models\Destination::class, function (Faker\Generator $faker) {
+    $title = $faker->words(3, true);
     return [
-        'title' => $faker->words(3, true),
+        'title' => $title,
+        'slug' => str_slug($title),
         'category_id' => '1',
         'thumbnail_image' => $faker->imageUrl(640, 480, 'nature'),
         'abstract' => $faker->sentence(),

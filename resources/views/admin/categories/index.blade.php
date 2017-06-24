@@ -26,13 +26,5 @@
                     {{ $categories->links() }}
                 </div>
               </div>
-            <table class="table table-striped table-bordered">
-                <thead>
-
-                </thead>
-                <tbody>
-
-                </tbody>
-            </table>
     </section>
 @endsection

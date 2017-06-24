@@ -11,7 +11,7 @@ class PageController extends Controller
 {
     public function home(Category $category, Destination $destination)
     {
-        $categories = $category->with('image')->get();
+        $categories = $category->get();
         $destinations = $destination->latest()->take(4)->get();
 
         return view('front.home', compact('categories', 'destinations'));

@@ -10,7 +10,7 @@ class DatabaseSeeder extends Seeder
         'admins',
         'categories',
         'destinations',
-        'images',
+        'banners',
     ];
 
 

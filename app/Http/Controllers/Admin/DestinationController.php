@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Banner;
 use App\Models\Destination;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -33,6 +34,7 @@ class DestinationController extends Controller
         $input = $request->all();
         $thumbpath = $request->file('thumbnail_image')->store('destinations/thumbnails', 'public');
         $input['thumbnail_image'] = "/storage/{$thumbpath}";
+        $input['slug'] = str_slug($input['title']);
 
         foreach ($request->file('banners') as $banner) {
             $bannerPath = $banner->store('destinations/banners', 'public');
@@ -44,7 +46,7 @@ class DestinationController extends Controller
             $destination = $this->destinationRepo->create($input);
 
             foreach ($input['banners'] as $banner) {
-                $destination->images()->create(['link' => $banner]);
+                $destination->banners()->create(['link' => $banner]);
             }
 
         });
@@ -63,6 +65,7 @@ class DestinationController extends Controller
     public function update($id, Request $request)
     {
         $input = $request->only('title', 'category_id', 'location', 'abstract', 'description');
+        $input['slug'] = str_slug($input['title']);
 
         if ($request->hasFile('thumbnail_image')) {
             $path = $request->file('thumbnail_image')->store('destinations', 'public');
@@ -70,6 +73,24 @@ class DestinationController extends Controller
         }
 
         $this->destinationRepo->whereId($id)->update($input);
+
+        if($request->hasFile('banners')) {
+
+            Banner::whereDestinationId($id)->delete();
+
+            foreach ($request->file('banners') as $banner) {
+                $bannerPath = $banner->store('destinations/banners', 'public');
+                $input['banners'][] = "/storage/{$bannerPath}";
+            }
+
+            DB::transaction(function() use ($input, $id) {
+
+                foreach ($input['banners'] as $banner) {
+                    Banner::create(['link' => $banner, 'destination_id' => $id]);
+                }
+
+            });
+        }
 
         flash('Destination successfuly edited')->success();
 

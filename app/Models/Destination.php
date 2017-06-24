@@ -3,13 +3,14 @@
 namespace App\Models;
 
 use App\Models\Category;
-use App\Models\Image;
+use App\Models\Banner;
 use Illuminate\Database\Eloquent\Model;
 
 class Destination extends Model
 {
     protected $fillable = [
         'title',
+        'slug',
         'thumbnail_image',
         'category_id',
         'abstract',
@@ -17,9 +18,9 @@ class Destination extends Model
         'location',
     ];
 
-    public function images()
+    public function banners()
     {
-        return $this->morphMany(Image::class, 'imageable');
+        return $this->hasMany(Banner::class);
     }
 
     public function category()

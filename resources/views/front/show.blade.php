@@ -10,10 +10,10 @@
         <!-- Flexslider -->
         <div class="flexslider flexslider-banner">
           <ul class="slides">
-            @foreach($destination->images as $image)
+            @foreach($destination->banners as $banner)
                 <li>
                     <div class="tm-banner-inner"></div>
-                    <img src="{{ $image->link }}" class="banner" alt="Image" />
+                    <img src="{{ $banner->link }}" class="banner" alt="Image" />
                 </li>
             @endforeach
           </ul>

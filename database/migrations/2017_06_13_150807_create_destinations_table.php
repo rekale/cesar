@@ -17,6 +17,7 @@ class CreateDestinationsTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('category_id');
             $table->string('title');
+            $table->string('slug')->index();
             $table->string('thumbnail_image');
             $table->string('abstract');
             $table->string('location');

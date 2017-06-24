@@ -33,7 +33,7 @@
                                     <div class="tm-tours-box-1-link-left">
                                         {{ $category->name }}
                                     </div>
-                                    <a href="{{ route('front.destination.show', ['title' => str_slug($destination->title)]) }}" class="tm-tours-box-1-link-right">
+                                    <a href="{{ route('front.destination.show', ['title' => $destination->slug]) }}" class="tm-tours-box-1-link-right">
                                         LIHAT
                                     </a>
                                 </div>

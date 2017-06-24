@@ -15,7 +15,7 @@
     <section class="content">
         <div class="col-md-10 col-md-offset-1">
           <div class="box box-primary">
-            <form method="POST" Action="{{ route('admin.categories.update', $category->id) }}">
+            <form method="POST" Action="{{ route('admin.categories.update', $category->id) }}" enctype="multipart/form-data">
               {{ csrf_field() }}
               {{ method_field('PUT') }}
               <div class="box-body">

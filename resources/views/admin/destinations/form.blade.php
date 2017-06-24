@@ -32,10 +32,10 @@
     <input type="file" class="form-control" name="banners[]" id="fileUpload" multiple="">
     <div id="image-holder" class="row well" style="margin:5px">
         @if(isset($destination))
-            @foreach($destination->images as $image)
+            @foreach($destination->banners as $banner)
                 <div class="col-xs-6 col-md-3">
                     <a href="#" class="thumbnail">
-                        <img src="{{ $image->link }}">
+                        <img src="{{ $banner->link }}">
                     </a>
                 </div>
             @endforeach

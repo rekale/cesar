@@ -15,7 +15,7 @@
     <section class="content">
         <div class="col-md-10 col-md-offset-1">
           <div class="box box-primary">
-            <form method="POST" Action="{{ route('admin.categories.store') }}">
+            <form method="POST" Action="{{ route('admin.categories.store') }}" enctype="multipart/form-data">
               {{ csrf_field() }}
               <div class="box-body">
                  @include('admin.categories.form')

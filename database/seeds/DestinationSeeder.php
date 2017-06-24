@@ -2,7 +2,7 @@
 
 use App\Models\Category;
 use App\Models\Destination;
-use App\Models\Image;
+use App\Models\Banner;
 use Illuminate\Database\Seeder;
 
 class DestinationSeeder extends Seeder
@@ -23,8 +23,8 @@ class DestinationSeeder extends Seeder
             ]);
 
             foreach ($destinations as $destination) {
-                $images = factory(Image::class, 5)->make();
-                $destination->images()->saveMany($images);
+                $images = factory(Banner::class, 5)->make();
+                $destination->banners()->saveMany($images);
             }
 
 

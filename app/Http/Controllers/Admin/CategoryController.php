@@ -29,7 +29,11 @@ class CategoryController extends Controller
 
     public function store(Request $request)
     {
-        $this->categoryRepo->create($request->all());
+        $input = $request->all();
+        $imgPath = $request->file('image')->store('categories', 'public');
+        $input['image'] = "storage/{$imgPath}";
+
+        $category = $this->categoryRepo->create($input);
 
         flash('category have been created')->success();
 
@@ -45,7 +49,14 @@ class CategoryController extends Controller
 
     public function update($id, Request $request)
     {
-        $this->categoryRepo->whereId($id)->update($request->only('name'));
+        $input = $request->only(['name', 'detail_name']);
+
+        if($request->hasFile('image')) {
+            $imgPath = $request->file('image')->store('categories', 'public');
+            $input['image'] = "/storage/{$imgPath}";
+        }
+
+        $category = $this->categoryRepo->whereId($id)->update($input);
 
         flash('category successfuly edited')->success();
 
