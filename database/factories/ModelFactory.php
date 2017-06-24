@@ -49,5 +49,6 @@ $factory->define(App\Models\Destination::class, function (Faker\Generator $faker
         'abstract' => $faker->sentence(),
         'description' => $faker->paragraph(),
         'location' => $faker->country,
+        'tickets' => $faker->numberBetween(1000, 9999),
     ];
 });

@@ -22,6 +22,7 @@ class CreateDestinationsTable extends Migration
             $table->string('abstract');
             $table->string('location');
             $table->text('description');
+            $table->unsignedInteger('tickets')->default(0);
             $table->timestamps();
 
             $table->foreign('category_id')

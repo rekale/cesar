@@ -43,6 +43,12 @@
     </div>
 </div>
 
+
+<div class="form-group">
+    <label>Tickets</label>
+    <input type="number" class="form-control" name="tickets" placeholder="tickets" value="{{ $destination->tickets ?? '' }}">
+</div>
+
 <div class="form-group">
     <label>Location</label>
     <input type="text" class="form-control" name="location" placeholder="location" value="{{ $destination->location ?? '' }}">

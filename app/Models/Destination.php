@@ -16,6 +16,7 @@ class Destination extends Model
         'abstract',
         'description',
         'location',
+        'tickets',
     ];
 
     public function banners()
