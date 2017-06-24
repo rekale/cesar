@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\DestinationRequest;
 use App\Models\Banner;
 use App\Models\Destination;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class DestinationController extends Controller
@@ -29,7 +29,7 @@ class DestinationController extends Controller
         return view('admin.destinations.create');
     }
 
-    public function store(Request $request)
+    public function store(DestinationRequest $request)
     {
         $input = $request->all();
 
@@ -63,7 +63,7 @@ class DestinationController extends Controller
         return view('admin.destinations.edit', compact('destination'));
     }
 
-    public function update($id, Request $request)
+    public function update($id, DestinationRequest $request)
     {
         $input = $request->only('title', 'category_id', 'location', 'abstract', 'description');
         $input['slug'] = str_slug($input['title']);

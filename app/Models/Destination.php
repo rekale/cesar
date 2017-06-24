@@ -16,6 +16,8 @@ class Destination extends Model
         'abstract',
         'description',
         'location',
+        'long',
+        'lat',
         'tickets',
     ];
 
