@@ -51,7 +51,9 @@
 
 <div class="form-group">
     <label>Location</label>
-    <input type="text" class="form-control" name="location" placeholder="location" value="{{ $destination->location ?? '' }}">
+    <input type="text" class="form-control" name="location" placeholder="location" id="location" value="{{ $destination->location ?? '' }}">
+    <input type="hidden" id="lat" name="lat" value={{ $destination->lat ?? 0 }} />
+    <input type="hidden" id="long" name="long" value={{ $destination->long ?? 0 }} />
 </div>
 
 <div class="form-group">
@@ -78,8 +80,27 @@
 
 @section('scripts')
     <script type="text/javascript">
+        function initAutocomplete() {
+            var location = new google.maps.places.Autocomplete(
+                (document.getElementById('location')),
+                {types: ['geocode']}
+            );
+
+            google.maps.event.addListener(location, 'place_changed', function () {
+                var place = location.getPlace();
+                document.getElementById('lat').value = place.geometry.location.lat();
+                document.getElementById('long').value = place.geometry.location.lng();
+            });
+
+      }
+
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBgqbs48bxB-5cM3OhIEtQKya0AXpcRx8w&libraries=places&callback=initAutocomplete&region=ID&language=ID"
+         async defer></script>
+    <script type="text/javascript">
 
         $(document).ready(function() {
+
 
             $('#description').wysihtml5();
 

@@ -32,6 +32,7 @@ class DestinationController extends Controller
     public function store(Request $request)
     {
         $input = $request->all();
+
         $thumbpath = $request->file('thumbnail_image')->store('destinations/thumbnails', 'public');
         $input['thumbnail_image'] = "/storage/{$thumbpath}";
         $input['slug'] = str_slug($input['title']);
