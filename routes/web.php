@@ -38,6 +38,10 @@ Route::group(['as' => 'front.', 'namespace' => 'Front'], function(){
       'as' => 'destination.show',
       'uses' => 'DestinationController@show',
      ]);
+    Route::get('/destinations', [
+      'as' => 'destination.api',
+      'uses' => 'DestinationController@index',
+     ]);
 });
 
 Route::group(['as' => 'admin.', 'namespace' => 'Admin', 'prefix' => 'admin'], function(){

@@ -50,7 +50,7 @@ $factory->define(App\Models\Destination::class, function (Faker\Generator $faker
         'description' => $faker->paragraph(),
         'location' => $faker->country,
         'lat' => $faker->latitude,
-        'long' => $faker->longitude,
+        'lng' => $faker->longitude,
         'tickets' => $faker->numberBetween(1000, 9999),
     ];
 });

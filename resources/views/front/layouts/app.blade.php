@@ -35,6 +35,7 @@
       height: 480px !important;
     }
   </style>
+  @yield('styles')
   </head>
   <body class="tm-gray-bg">
     <!-- Header -->
@@ -151,5 +152,6 @@
 
         });
     </script>
+    @yield('scripts')
  </body>
  </html>

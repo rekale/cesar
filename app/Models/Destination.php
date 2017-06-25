@@ -16,9 +16,14 @@ class Destination extends Model
         'abstract',
         'description',
         'location',
-        'long',
+        'lng',
         'lat',
         'tickets',
+    ];
+
+    protected $casts = [
+        'lng' => 'double',
+        'lat' => 'double',
     ];
 
     public function banners()

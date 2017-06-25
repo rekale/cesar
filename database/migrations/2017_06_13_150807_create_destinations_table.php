@@ -22,7 +22,7 @@ class CreateDestinationsTable extends Migration
             $table->string('abstract');
             $table->string('location');
             $table->decimal('lat', 10, 7);
-            $table->decimal('long', 10, 7);
+            $table->decimal('lng', 10, 7);
             $table->text('description');
             $table->unsignedInteger('tickets')->default(0);
             $table->timestamps();

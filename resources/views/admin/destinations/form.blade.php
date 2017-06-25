@@ -53,7 +53,7 @@
     <label>Location</label>
     <input type="text" class="form-control" name="location" placeholder="location" id="location" value="{{ $destination->location ?? '' }}">
     <input type="hidden" id="lat" name="lat" value={{ $destination->lat ?? 0 }} />
-    <input type="hidden" id="long" name="long" value={{ $destination->long ?? 0 }} />
+    <input type="hidden" id="lng" name="lng" value={{ $destination->lng ?? 0 }} />
 </div>
 
 <div class="form-group">
@@ -89,7 +89,7 @@
             google.maps.event.addListener(location, 'place_changed', function () {
                 var place = location.getPlace();
                 document.getElementById('lat').value = place.geometry.location.lat();
-                document.getElementById('long').value = place.geometry.location.lng();
+                document.getElementById('lng').value = place.geometry.location.lng();
             });
 
       }

@@ -25,14 +25,13 @@ class DestinationRequest extends FormRequest
     {
         return [
             'title' => 'required|max:255',
-            'slug' => 'required|max:255',
-            'thumbnail_image' => 'required|max:255',
+            'thumbnail_image' => 'required|image|max:2000',
             'category_id' => 'required',
             'abstract' => 'required|max:255',
             'description' => 'required',
             'location' => 'required|max:255',
             'tickets' => 'required|integer',
-            'banners.*' => 'image|max:1000',
+            'banners.*' => 'image|max:2000',
         ];
     }
 }

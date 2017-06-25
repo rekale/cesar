@@ -9,9 +9,9 @@ use Illuminate\Http\Request;
 
 class DestinationController extends Controller
 {
-    public function index()
+    public function index(Destination $destModel)
     {
-
+        return $destModel->all()->toJson();
     }
 
     public function show($slug, Destination $destModel)

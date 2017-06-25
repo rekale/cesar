@@ -37,20 +37,25 @@ class DestinationController extends Controller
         $input['thumbnail_image'] = "/storage/{$thumbpath}";
         $input['slug'] = str_slug($input['title']);
 
-        foreach ($request->file('banners') as $banner) {
-            $bannerPath = $banner->store('destinations/banners', 'public');
-            $input['banners'][] = "/storage/{$bannerPath}";
-        }
 
-        DB::transaction(function() use ($input) {
 
-            $destination = $this->destinationRepo->create($input);
 
-            foreach ($input['banners'] as $banner) {
-                $destination->banners()->create(['link' => $banner]);
-            }
+            DB::transaction(function() use ($input, $request) {
 
-        });
+                $destination = $this->destinationRepo->create($input);
+
+                if($request->hasFile('banners')) {
+                    foreach ($request->file('banners') as $banner) {
+                        $bannerPath = $banner->store('destinations/banners', 'public');
+                        $input['banners'][] = "/storage/{$bannerPath}";
+                    }
+                    foreach ($input['banners'] as $banner) {
+                        $destination->banners()->create(['link' => $banner]);
+                    }
+                }
+
+            });
+
         flash('Destination have been created')->success();
 
         return redirect()->route('admin.destinations.index');
