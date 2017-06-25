@@ -16,6 +16,12 @@
 @endsection
 
 @section('scripts')
+    <template id="info">
+        <img src="" class="img" style="max-height: 50px;max-width: 100px">
+        <h4 class="title"></h3>
+        <div class="abstract" style="margin: 1em"></div>
+    </template>
+
     <script>
 
         function initMap() {
@@ -29,6 +35,9 @@
 
             getCurrentLocation(map);
 
+            var infowindow = new google.maps.InfoWindow({
+                content: 'none'
+            });;
             $.getJSON('/destinations').done(function (destinations) {
                 destinations.forEach(function(destination){
 
@@ -39,12 +48,23 @@
                     });
 
                     marker.addListener('click', function(){
+                        //create template
+                        var template = document.querySelector('#info').content;
+                        template.querySelector('.img').src = destination.thumbnail_image;
+                        template.querySelector('.title').innerHTML = destination.title;
+                        template.querySelector('.abstract').innerHTML = destination.abstract;
+                        var clone = document.importNode(template, true);
 
-                        var infowindow = new google.maps.InfoWindow({
-                            content: destination.abstract
+                        //show it
+                        infowindow.open(map, this);
+                        infowindow.setContent(clone);
+
+                        map.panTo({
+                            lat: this.position.lat(),
+                            lng: this.position.lng()
                         });
 
-                        infowindow.open(map, this);
+                        map.setZoom(10);
                     });
 
                 });
@@ -65,7 +85,7 @@
                     myLocationWindow.setPosition(pos);
                     myLocationWindow.setContent('My Location.');
                     myLocationWindow.open(map);
-                    map.setCenter(pos);
+                    map.panTo(pos);
 
                     var marker = new google.maps.Marker({
                         position: {"lat": pos.lat, "lng": pos.lng},
@@ -80,11 +100,11 @@
                     });
 
                 }, function() {
-                    handleLocationError(true, infoWindow, map.getCenter());
+                    handleLocationError(true, myLocationWindow, map.getCenter());
                 });
             } else {
                   // Browser doesn't support Geolocation
-                  handleLocationError(false, infoWindow, map.getCenter());
+                  handleLocationError(false, myLocationWindow, map.getCenter());
             }
         }
 
