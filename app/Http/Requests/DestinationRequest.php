@@ -25,7 +25,7 @@ class DestinationRequest extends FormRequest
     {
         return [
             'title' => 'required|max:255',
-            'thumbnail_image' => 'required|image|max:2000',
+            'thumbnail_image' => 'image|max:2000',
             'category_id' => 'required',
             'abstract' => 'required|max:255',
             'description' => 'required',
