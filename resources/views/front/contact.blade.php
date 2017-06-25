@@ -63,8 +63,6 @@
                             lat: this.position.lat(),
                             lng: this.position.lng()
                         });
-
-                        map.setZoom(10);
                     });
 
                 });
