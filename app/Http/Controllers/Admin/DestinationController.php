@@ -10,16 +10,16 @@ use Illuminate\Support\Facades\DB;
 
 class DestinationController extends Controller
 {
-    private $destinationRepo;
+    private $model;
 
     public function __construct(Destination $destination)
     {
-        $this->destinationRepo = $destination;
+        $this->model = $destination;
     }
 
     public function index()
     {
-        $destinations = $this->destinationRepo->with('category')->latest()->paginate();
+        $destinations = $this->model->with('category')->latest()->paginate();
 
         return view('admin.destinations.index', compact('destinations'));
     }
@@ -42,7 +42,7 @@ class DestinationController extends Controller
 
             DB::transaction(function() use ($input, $request) {
 
-                $destination = $this->destinationRepo->create($input);
+                $destination = $this->model->create($input);
 
                 if($request->hasFile('banners')) {
                     foreach ($request->file('banners') as $banner) {
@@ -63,7 +63,7 @@ class DestinationController extends Controller
 
     public function edit($id)
     {
-        $destination = $this->destinationRepo->findOrFail($id);
+        $destination = $this->model->findOrFail($id);
 
         return view('admin.destinations.edit', compact('destination'));
     }
@@ -78,7 +78,7 @@ class DestinationController extends Controller
             $input['thumbnail_image'] = "/storage/{$path}";
         }
 
-        $this->destinationRepo->whereId($id)->update($input);
+        $this->model->whereId($id)->update($input);
 
         if($request->hasFile('banners')) {
 
@@ -105,7 +105,7 @@ class DestinationController extends Controller
 
     public function destroy($id)
     {
-        $this->destinationRepo->destroy($id);
+        $this->model->destroy($id);
 
         flash('Destination have been deleted');
 

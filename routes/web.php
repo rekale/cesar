@@ -118,5 +118,23 @@ Route::group(['as' => 'admin.', 'namespace' => 'Admin', 'prefix' => 'admin'], fu
             'uses' => 'DestinationController@destroy',
         ]);
 
+        //users
+        Route::get('users', [
+            'as' => 'users.index',
+            'uses' => 'UserController@index',
+        ]);
+        Route::get('users/{id}/edit', [
+            'as' => 'users.edit',
+            'uses' => 'UserController@edit',
+        ]);
+        Route::put('users/{id}/edit', [
+            'as' => 'users.update',
+            'uses' => 'UserController@update',
+        ]);
+        Route::delete('users/{id}/destroy', [
+            'as' => 'users.destroy',
+            'uses' => 'UserController@destroy',
+        ]);
+
     });
 });
