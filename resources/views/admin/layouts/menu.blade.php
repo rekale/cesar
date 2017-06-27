@@ -40,4 +40,15 @@
         <li><a href="{{ route('admin.users.index') }}"><i class="fa fa-list"></i> index</a></li>
       </ul>
     </li>
+    <li class="treeview">
+      <a href="#">
+        <i class="fa fa-users"></i> <span>Purchases</span>
+        <span class="pull-right-container">
+          <i class="fa fa-angle-left pull-right"></i>
+        </span>
+      </a>
+      <ul class="treeview-menu" style="display: none;">
+        <li><a href="{{ route('admin.purchases.index') }}"><i class="fa fa-list"></i> index</a></li>
+      </ul>
+    </li>
   </ul>

@@ -136,5 +136,23 @@ Route::group(['as' => 'admin.', 'namespace' => 'Admin', 'prefix' => 'admin'], fu
             'uses' => 'UserController@destroy',
         ]);
 
+        //purchases
+        Route::get('purchases', [
+            'as' => 'purchases.index',
+            'uses' => 'PurchaseController@index',
+        ]);
+        Route::get('purchases/{id}/edit', [
+            'as' => 'purchases.edit',
+            'uses' => 'PurchaseController@edit',
+        ]);
+        Route::put('purchases/{id}/edit', [
+            'as' => 'purchases.update',
+            'uses' => 'PurchaseController@update',
+        ]);
+        Route::delete('purchases/{id}/destroy', [
+            'as' => 'purchases.destroy',
+            'uses' => 'PurchaseController@destroy',
+        ]);
+
     });
 });
