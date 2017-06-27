@@ -31,7 +31,7 @@ class UserController extends Controller
 
     public function update($id, UserRequest $request)
     {
-        $input = $request->only(['name', 'detail_name']);
+        $input = $request->except('_token', '_method');
 
         if($request->hasFile('image')) {
             $imgPath = $request->file('image')->store('users', 'public');

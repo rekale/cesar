@@ -8,7 +8,7 @@ use App\Models\Purchase;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 
-class purchaseController extends Controller
+class PurchaseController extends Controller
 {
     private $model;
 

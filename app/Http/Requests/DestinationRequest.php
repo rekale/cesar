@@ -23,15 +23,29 @@ class DestinationRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            'title' => 'required|max:255',
-            'thumbnail_image' => 'image|max:2000',
-            'category_id' => 'required',
-            'abstract' => 'required|max:255',
-            'description' => 'required',
-            'location' => 'required|max:255',
-            'tickets' => 'required|integer',
-            'banners.*' => 'image|max:2000',
-        ];
+        if ($this->method() == 'POST') {
+            return [
+                'title' => 'required|max:255',
+                'thumbnail_image' => 'required|image|max:2000',
+                'category_id' => 'required',
+                'abstract' => 'required|max:255',
+                'description' => 'required',
+                'location' => 'required|max:255',
+                'tickets' => 'required|integer',
+                'banners.*' => 'required|image|max:2000',
+            ];
+        } else if ($this->method() == 'PUT') {
+            return [
+                'title' => 'required|max:255',
+                'thumbnail_image' => 'image|max:2000',
+                'category_id' => 'required',
+                'abstract' => 'required|max:255',
+                'description' => 'required',
+                'location' => 'required|max:255',
+                'tickets' => 'required|integer',
+                'banners.*' => 'image|max:2000',
+            ];
+        }
+
     }
 }

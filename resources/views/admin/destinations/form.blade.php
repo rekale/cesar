@@ -3,14 +3,22 @@
     @inject('categories', 'App\Models\Category')
     <select class="form-control" name="category_id">
         @foreach($categories->pluck('name', 'id') as $id => $name)
-            <option value="{{ $id }}">{{ $name }}</option>
+            <option value="{{ $id }}"
+                {{ isset($destination) ?
+                      $destination->category->id == $id ? 'selected':null
+                    :
+                      old('category_id') == $id ? 'selected':null
+                }}
+            >
+                {{ $name }}
+            </option>
         @endforeach
     </select>
 </div>
 
 <div class="form-group">
     <label>Title</label>
-    <input type="text" class="form-control" name="title" placeholder="Title" value="{{ $destination->title ?? '' }}">
+    <input type="text" class="form-control" name="title" placeholder="Title" value="{{ $destination->title ?? old('title') }}">
 </div>
 
 <div class="form-group">
@@ -46,26 +54,26 @@
 
 <div class="form-group">
     <label>Tickets</label>
-    <input type="number" class="form-control" name="tickets" placeholder="tickets" value="{{ $destination->tickets ?? '' }}">
+    <input type="number" class="form-control" name="tickets" placeholder="tickets" value="{{ $destination->tickets ?? old('tickets') }}">
 </div>
 
 <div class="form-group">
     <label>Location</label>
-    <input type="text" class="form-control" name="location" placeholder="location" id="location" value="{{ $destination->location ?? '' }}">
-    <input type="hidden" id="lat" name="lat" value={{ $destination->lat ?? 0 }} />
-    <input type="hidden" id="lng" name="lng" value={{ $destination->lng ?? 0 }} />
+    <input type="text" class="form-control" name="location" placeholder="location" id="location" value="{{ $destination->location ?? old('location') }}">
+    <input type="hidden" id="lat" name="lat" value={{ $destination->lat ?? old('lat') }} />
+    <input type="hidden" id="lng" name="lng" value={{ $destination->lng ?? old('lng') }} />
 </div>
 
 <div class="form-group">
     <label>Abstract</label>
-    <input type="text" class="form-control" name="abstract" placeholder="abstract" value="{{ $destination->abstract ?? '' }}">
+    <input type="text" class="form-control" name="abstract" placeholder="abstract" value="{{ $destination->abstract ?? old('abstract') }}">
 </div>
 
 <div class="form-group">
     <label>Description</label>
     <div class="box">
         <div class="box-body pad">
-            <textarea id="description" name="description" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid rgb(221, 221, 221); padding: 10px;" placeholder="Place some text here.">{!! $destination->description ?? '' !!}</textarea>
+            <textarea id="description" name="description" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid rgb(221, 221, 221); padding: 10px;" placeholder="Place some text here.">{!! $destination->description ?? old('description') !!}</textarea>
         </div>
     </div>
 </div>

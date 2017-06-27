@@ -1,12 +1,12 @@
 
 <div class="form-group">
     <label>Username</label>
-    <input type="text" class="form-control" name="name" placeholder="Name" value="{{ $purchase->user->name ?? '' }}">
+    <input type="text" class="form-control" name="username" placeholder="Username" value="{{ $purchase->user->name ?? old('name') }}" disabled>
 </div>
 
 <div class="form-group">
     <label>Destination</label>
-    <input type="text" class="form-control" name="username" placeholder="Username" value="{{ $purchase->destination->title ?? '' }}">
+    <input type="text" class="form-control" name="destination" placeholder="destination" value="{{ $purchase->destination->title ?? old('name') }}" disabled>
 </div>
 
 <div class="form-group">
