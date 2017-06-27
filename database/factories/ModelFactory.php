@@ -59,5 +59,17 @@ $factory->define(App\Models\Destination::class, function (Faker\Generator $faker
         'lat' => $faker->latitude(-5.226754, 5.427413),
         'lng' => $faker->longitude(95.401736, 140.782745),
         'tickets' => $faker->numberBetween(1000, 9999),
+        'ticket_price' => $faker->numberBetween(50000, 100000),
+    ];
+});
+
+$factory->define(App\Models\Purchase::class, function (Faker\Generator $faker) {
+
+    $faker = Faker\Factory::create('id_ID');
+    return [
+        'destination_id' => 1,
+        'user_id' => 1,
+        'tickets' => $faker->numberBetween(1, 30),
+        'total' => $faker->numberBetween(100000, 1000000),
     ];
 });

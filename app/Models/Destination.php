@@ -19,6 +19,7 @@ class Destination extends Model
         'lng',
         'lat',
         'tickets',
+        'ticket_price',
     ];
 
     protected $casts = [

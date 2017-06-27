@@ -11,6 +11,7 @@ class DatabaseSeeder extends Seeder
         'categories',
         'destinations',
         'banners',
+        'purchases'
     ];
 
 
@@ -18,6 +19,7 @@ class DatabaseSeeder extends Seeder
         UserSeeder::class,
         CategorySeeder::class,
         DestinationSeeder::class,
+        PurchaseSeeder::class,
     ];
     /**
      * Run the database seeds.

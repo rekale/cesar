@@ -25,6 +25,7 @@ class CreateDestinationsTable extends Migration
             $table->decimal('lng', 10, 7);
             $table->text('description');
             $table->unsignedInteger('tickets')->default(0);
+            $table->unsignedInteger('ticket_price')->default(0);
             $table->timestamps();
 
             $table->foreign('category_id')
