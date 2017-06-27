@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\PurchaseRequest;
 use App\Models\Purchase;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Http\Request;
 
 class purchaseController extends Controller
 {
@@ -15,9 +17,16 @@ class purchaseController extends Controller
         $this->model = $purchase;
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        $purchases = $this->model->latest()->paginate();
+        $filter = $request->input('filter');
+        $model = $this->model->with('user', 'destination');
+
+        if(isset($filter)) {
+            $model = $this->{$filter}($model);
+        }
+
+        $purchases = $model->latest()->paginate();
 
         return view('admin.purchases.index', compact('purchases'));
     }
@@ -52,6 +61,21 @@ class purchaseController extends Controller
         flash('purchase have been deleted');
 
         return redirect()->back();
+    }
+
+    private function confirmed(Builder $model)
+    {
+        return $model->whereConfirmed(true);
+    }
+
+    private function not_confirmed(Builder $model)
+    {
+        return $model->whereConfirmed(false);
+    }
+
+    private function confirm_request(Builder $model)
+    {
+        return $model->whereNotNull('proof')->whereConfirmed(false);
     }
 
 }

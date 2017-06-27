@@ -16,6 +16,26 @@
             <div class="box">
                 <!-- /.box-header -->
                 <div class="box-body">
+                    <form method="GET" Action="{{ route('admin.purchases.index') }}" id="purchase-filter">
+                        <div class="form-group">
+                            <label>Filter</label>
+                            <select class="form-control" name="filter" onchange="$('#purchase-filter').submit()">
+                                <option></option>
+                                <option value="confirmed" {{ request('filter') == 'confirmed' ? 'selected':'' }}>
+                                    Confirmed
+                                </option>
+                                <option value="not_confirmed" {{ request('filter') == 'not_confirmed' ? 'selected':'' }}>
+                                    Not Confirmed
+                                </option>
+                                <option value="confirm_request" {{ request('filter') == 'confirm_request' ? 'selected':'' }}>
+                                    Confirm Request
+                                </option>
+                            </select>
+                        </div>
+                        @if(Request::has('filter'))
+                            <a class="text-primary" href="{{ route('admin.purchases.index') }}">clear search</a>
+                        @endif
+                    </form>
                     @include('admin.purchases.table')
                 </div>
                 <!-- /.box-body -->
