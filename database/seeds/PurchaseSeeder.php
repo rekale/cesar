@@ -16,6 +16,7 @@ class PurchaseSeeder extends Seeder
     {
         $users = User::all('id');
         $destinations = Destination::all('id');
+        $fake = Faker\Factory::create('id_ID');
 
         foreach($users as $user) {
             for ($i=0; $i < 10; $i++) {
@@ -23,6 +24,14 @@ class PurchaseSeeder extends Seeder
                     'user_id' => $user->id,
                     'destination_id' => $destinations->random()->id,
                 ]);
+
+               $isPurchased = $fake->boolean();
+
+               if ($isPurchased) {
+                    $purchase->confirmed = true;
+                    $purchase->proof = $fake->imageUrl();
+               }
+
                $purchase->save();
             }
         }

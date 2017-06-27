@@ -19,6 +19,8 @@ class CreatePurchasesTable extends Migration
             $table->unsignedInteger('user_id');
             $table->unsignedInteger('tickets');
             $table->unsignedInteger('total');
+            $table->string('proof')->nullable();
+            $table->boolean('confirmed')->default(false);
             $table->timestamps();
 
             $table->foreign('destination_id')

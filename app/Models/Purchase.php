@@ -13,6 +13,8 @@ class Purchase extends Model
         'user_id',
         'tickets',
         'total',
+        'proof',
+        'confirmed',
     ];
 
     public function destination()
