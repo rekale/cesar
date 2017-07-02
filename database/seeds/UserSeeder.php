@@ -18,7 +18,7 @@ class UserSeeder extends Seeder
             'username' => 'admin',
         ]);
 
-        factory(User::class, 20)->create();
+        factory(User::class, 10)->create();
 
         Admin::create([
             'email' => 'admin@test.com',
