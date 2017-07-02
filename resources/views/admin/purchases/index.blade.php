@@ -40,7 +40,7 @@
                 </div>
                 <!-- /.box-body -->
                 <div class="box-footer clearfix">
-                    {{ $purchases->links() }}
+                    {{ $purchases->appends(request('filter'))->links() }}
                 </div>
               </div>
     </section>
