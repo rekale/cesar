@@ -42,7 +42,7 @@
     </li>
     <li class="treeview {{ request()->is('*transactions*') ? 'active':'' }}">
       <a href="#">
-        <i class="fa fa-users"></i> <span>Transactions</span>
+        <i class="fa fa-money"></i> <span>Transactions</span>
         <span class="pull-right-container">
           <i class="fa fa-angle-left pull-right"></i>
         </span>
