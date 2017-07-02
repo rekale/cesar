@@ -20,7 +20,7 @@ class TransactionSeeder extends Seeder
 
         //create transaction
         foreach($users as $user) {
-            for ($i=0; $i < 10; $i++) {
+            for ($i=0; $i < 5; $i++) {
                 $transaction = new Transaction(['user_id' => $user->id]);
 
                 $isPurchased = $fake->boolean();
@@ -33,11 +33,16 @@ class TransactionSeeder extends Seeder
                 $transaction->save();
 
                 $randDest = $destinations->random($fake->numberBetween(1, 5))->pluck('id');
+                $tickets = $fake->numberBetween(1, 10);
+                $price = $fake->numberBetween(10000, 100000);
 
                 $transaction->destinations()->attach($randDest, [
-                    'tickets' => $fake->numberBetween(1, 10),
-                    'total' => $fake->numberBetween(10000, 1000000),
+                    'tickets' => $tickets,
+                    'total' => $price,
                 ]);
+
+                $transaction->total = $price * $tickets;
+                $transaction->save();
             }
         }
     }

@@ -3,12 +3,12 @@
 @section('content')
     <section class="content-header">
       <h1>
-        Purchases
+        Transactions
         <small>index</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="{{ route('admin.dashboard') }}"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="{{ route('admin.purchases.index') }}"><i class="fa fa-list"></i>Index</a></li>
+        <li><a href="{{ route('admin.transactions.index') }}"><i class="fa fa-list"></i>Index</a></li>
       </ol>
     </section>
     <section class="content">
@@ -16,7 +16,7 @@
             <div class="box">
                 <!-- /.box-header -->
                 <div class="box-body">
-                    <form method="GET" Action="{{ route('admin.purchases.index') }}" id="purchase-filter">
+                    <form method="GET" Action="{{ route('admin.transactions.index') }}" id="purchase-filter">
                         <div class="form-group">
                             <label>Filter</label>
                             <select class="form-control" name="filter" onchange="$('#purchase-filter').submit()">
@@ -33,14 +33,14 @@
                             </select>
                         </div>
                         @if(Request::has('filter'))
-                            <a class="text-primary" href="{{ route('admin.purchases.index') }}">clear search</a>
+                            <a class="text-primary" href="{{ route('admin.transactions.index') }}">clear search</a>
                         @endif
                     </form>
-                    @include('admin.purchases.table')
+                    @include('admin.transactions.table')
                 </div>
                 <!-- /.box-body -->
                 <div class="box-footer clearfix">
-                    {{ $purchases->appends(request('filter'))->links() }}
+                    {{ $transactions->appends(request('filter'))->links() }}
                 </div>
               </div>
     </section>

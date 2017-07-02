@@ -3,53 +3,53 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\PurchaseRequest;
-use App\Models\Purchase;
+use App\Http\Requests\TransactionRequest;
+use App\Models\transaction;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 
-class PurchaseController extends Controller
+class TransactionController extends Controller
 {
     private $model;
 
-    public function __construct(Purchase $purchase)
+    public function __construct(Transaction $transaction)
     {
-        $this->model = $purchase;
+        $this->model = $transaction;
     }
 
     public function index(Request $request)
     {
         $filter = $request->input('filter');
-        $model = $this->model->with('user', 'destination');
+        $model = $this->model->with('user');
 
         if(isset($filter)) {
             $model = $this->{$filter}($model);
         }
 
-        $purchases = $model->latest()->paginate();
+        $transactions = $model->latest()->paginate();
 
-        return view('admin.purchases.index', compact('purchases'));
+        return view('admin.transactions.index', compact('transactions'));
     }
 
     public function edit($id)
     {
-        $purchase = $this->model->findOrFail($id);
+        $transaction = $this->model->with('destinations.category')->findOrFail($id);
 
-        return view('admin.purchases.edit', compact('purchase'));
+        return view('admin.transactions.edit', compact('transaction'));
     }
 
-    public function update($id, PurchaseRequest $request)
+    public function update($id, TransactionRequest $request)
     {
-        $input = $request->only(['name', 'detail_name']);
+        $input = $request->only(['total', 'proof', 'confirmed']);
 
         if($request->hasFile('image')) {
-            $imgPath = $request->file('image')->store('purchases', 'public');
+            $imgPath = $request->file('image')->store('transactions', 'public');
             $input['image'] = "/storage/{$imgPath}";
         }
 
-        $purchase = $this->model->whereId($id)->update($input);
+        $transaction = $this->model->whereId($id)->update($input);
 
-        flash('purchase successfuly edited')->success();
+        flash('transaction successfuly edited')->success();
 
         return redirect()->back();
     }
@@ -58,7 +58,7 @@ class PurchaseController extends Controller
     {
         $this->model->destroy($id);
 
-        flash('purchase have been deleted');
+        flash('transaction have been deleted');
 
         return redirect()->back();
     }

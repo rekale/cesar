@@ -136,22 +136,22 @@ Route::group(['as' => 'admin.', 'namespace' => 'Admin', 'prefix' => 'admin'], fu
             'uses' => 'UserController@destroy',
         ]);
 
-        //purchases
-        Route::get('purchases', [
-            'as' => 'purchases.index',
-            'uses' => 'PurchaseController@index',
+        //Transactions
+        Route::get('Transactions', [
+            'as' => 'transactions.index',
+            'uses' => 'TransactionController@index',
         ]);
-        Route::get('purchases/{id}/edit', [
-            'as' => 'purchases.edit',
-            'uses' => 'PurchaseController@edit',
+        Route::get('Transactions/{id}/edit', [
+            'as' => 'transactions.edit',
+            'uses' => 'TransactionController@edit',
         ]);
-        Route::put('purchases/{id}/edit', [
-            'as' => 'purchases.update',
-            'uses' => 'PurchaseController@update',
+        Route::put('Transactions/{id}/edit', [
+            'as' => 'transactions.update',
+            'uses' => 'TransactionController@update',
         ]);
-        Route::delete('purchases/{id}/destroy', [
-            'as' => 'purchases.destroy',
-            'uses' => 'PurchaseController@destroy',
+        Route::delete('Transactions/{id}/destroy', [
+            'as' => 'transactions.destroy',
+            'uses' => 'TransactionController@destroy',
         ]);
 
     });
