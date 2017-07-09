@@ -18,6 +18,9 @@
                         <option value="confirm_request" {{ request('filter') == 'confirm_request' ? 'selected':'' }}>
                             Confirm Request
                         </option>
+                        <option value="expired" {{ request('filter') == 'expired' ? 'selected':'' }}>
+                            Expired
+                        </option>
                     </select>
                 </div>
                 @if(Request::has('filter'))
@@ -70,6 +73,8 @@
                                 <span class="label label-danger">Not confirmed</span>
                             @elseif(!$transaction->confirmed && isset($transaction->proof))
                                 <span class="label label-info">Processing</span>
+                            @elseif($transaction->expired_at->timestamps < Carbon\Carbon::now())
+                                <span class="label label-default">Expired</span>
                             @endif
                         </td>
                         <td>

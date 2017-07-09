@@ -30,6 +30,9 @@
                                 <option value="confirm_request" {{ request('filter') == 'confirm_request' ? 'selected':'' }}>
                                     Confirm Request
                                 </option>
+                                <option value="expired" {{ request('filter') == 'expired' ? 'selected':'' }}>
+                                    Expired
+                                </option>
                             </select>
                         </div>
                         @if(Request::has('filter'))

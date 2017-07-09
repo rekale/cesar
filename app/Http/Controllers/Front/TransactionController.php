@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
 use App\Models\Transaction;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 
@@ -27,7 +28,7 @@ class TransactionController extends Controller
             $model = $this->{$filter}($model);
         }
 
-        $transactions = $model->latest()->paginate();
+        $transactions = $model->whereUserId($id)->latest()->paginate();
 
         return view('front.transactions.histories', compact('transactions'));
     }
@@ -35,6 +36,7 @@ class TransactionController extends Controller
     public function confirmation($id, Request $request)
     {
         $transaction = $this->model->whereUserId($request->user()->id)
+                                   ->whereConfirmed(false)
                                    ->findOrFail($id);
 
         return view('front.transactions.confirmation', compact('transaction'));
@@ -61,11 +63,16 @@ class TransactionController extends Controller
 
     private function not_confirmed(Builder $model)
     {
-        return $model->whereNull('proof')->whereConfirmed(false);
+        return $model->where('expired_at', '>=', Carbon::now())->whereNull('proof')->whereConfirmed(false);
     }
 
     private function confirm_request(Builder $model)
     {
-        return $model->whereNotNull('proof')->whereConfirmed(false);
+        return $model->where('expired_at', '>=', Carbon::now())->whereNotNull('proof')->whereConfirmed(false);
+    }
+
+    private function expired(Builder $model)
+    {
+        return $model->where('expired_at', '<', Carbon::now());
     }
 }

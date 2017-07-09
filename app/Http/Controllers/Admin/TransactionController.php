@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\TransactionRequest;
 use App\Models\Transaction;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 
@@ -70,12 +71,17 @@ class TransactionController extends Controller
 
     private function not_confirmed(Builder $model)
     {
-        return $model->whereNull('proof')->whereConfirmed(false);
+        return $model->where('expired_at', '>=', Carbon::now())->whereNull('proof')->whereConfirmed(false);
     }
 
     private function confirm_request(Builder $model)
     {
-        return $model->whereNotNull('proof')->whereConfirmed(false);
+        return $model->where('expired_at', '>=', Carbon::now())->whereNotNull('proof')->whereConfirmed(false);
+    }
+
+    private function expired(Builder $model)
+    {
+        return $model->where('expired_at', '<', Carbon::now());
     }
 
 }

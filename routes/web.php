@@ -44,7 +44,7 @@ Route::group(['as' => 'front.', 'namespace' => 'Front'], function(){
      ]);
 
     //transactions
-    Route::get('transactions/histories', [
+    Route::get('transactions', [
         'as' => 'transactions.histories',
         'uses' => 'TransactionController@histories',
     ]);
