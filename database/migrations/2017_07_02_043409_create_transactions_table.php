@@ -20,6 +20,7 @@ class CreateTransactionsTable extends Migration
             $table->string('proof')->nullable();
             $table->boolean('confirmed')->default(false);
             $table->timestamps();
+            $table->dateTime('expired_at')->nullable();
         });
     }
 

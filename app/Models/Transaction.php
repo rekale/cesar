@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 class Transaction extends Model
@@ -11,6 +12,7 @@ class Transaction extends Model
         'total',
         'proof',
         'confirmed',
+        'expired_at',
     ];
 
     public function destinations()

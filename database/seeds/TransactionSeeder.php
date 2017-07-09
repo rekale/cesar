@@ -3,6 +3,7 @@
 use App\Models\Destination;
 use App\Models\Transaction;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 
 class TransactionSeeder extends Seeder
@@ -24,10 +25,12 @@ class TransactionSeeder extends Seeder
                 $transaction = new Transaction(['user_id' => $user->id]);
 
                 $isPurchased = $fake->boolean();
+                $transaction->expired_at = Carbon::tomorrow()->addDay();
 
                 if ($isPurchased) {
                     $transaction->confirmed = true;
                     $transaction->proof = $fake->imageUrl();
+                    $transaction->expired_at = null;
                 }
 
                 $transaction->save();

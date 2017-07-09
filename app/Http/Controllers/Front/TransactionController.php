@@ -1,15 +1,15 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\TransactionRequest;
 use App\Models\Transaction;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 
 class TransactionController extends Controller
 {
+
     private $model;
 
     public function __construct(Transaction $transaction)
@@ -17,10 +17,11 @@ class TransactionController extends Controller
         $this->model = $transaction;
     }
 
-    public function index(Request $request)
+    public function histories(Request $request)
     {
+        $id  = $request->user()->id;
         $filter = $request->input('filter');
-        $model = $this->model->with('user');
+        $model = $this->model->with('destinations');
 
         if(isset($filter)) {
             $model = $this->{$filter}($model);
@@ -28,39 +29,29 @@ class TransactionController extends Controller
 
         $transactions = $model->latest()->paginate();
 
-        return view('admin.transactions.index', compact('transactions'));
+        return view('front.transactions.histories', compact('transactions'));
     }
 
-    public function edit($id)
+    public function confirmation($id, Request $request)
     {
-        $transaction = $this->model->with('destinations.category')->findOrFail($id);
+        $transaction = $this->model->whereUserId($request->user()->id)
+                                   ->findOrFail($id);
 
-        return view('admin.transactions.edit', compact('transaction'));
+        return view('front.transactions.confirmation', compact('transaction'));
     }
 
-    public function update($id, TransactionRequest $request)
+    public function confirm($id, Request $request)
     {
-        $input = $request->only(['total', 'proof', 'confirmed']);
-
         if($request->hasFile('proof')) {
-            $imgPath = $request->file('image')->store('transactions', 'public');
-            $input['image'] = "/storage/{$imgPath}";
+            $imgPath = $request->file('proof')->store('transactions', 'public');
+            $input['proof'] = "/storage/{$imgPath}";
         }
 
         $transaction = $this->model->whereId($id)->update($input);
 
-        flash('transaction successfuly edited')->success();
+        flash('confirmation has been requested')->success();
 
-        return redirect()->back();
-    }
-
-    public function destroy($id)
-    {
-        $this->model->destroy($id);
-
-        flash('transaction have been deleted');
-
-        return redirect()->back();
+        return redirect()->route('front.transactions.histories');
     }
 
     private function confirmed(Builder $model)
@@ -77,5 +68,4 @@ class TransactionController extends Controller
     {
         return $model->whereNotNull('proof')->whereConfirmed(false);
     }
-
 }

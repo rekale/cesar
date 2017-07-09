@@ -42,6 +42,20 @@ Route::group(['as' => 'front.', 'namespace' => 'Front'], function(){
       'as' => 'destination.api',
       'uses' => 'DestinationController@index',
      ]);
+
+    //transactions
+    Route::get('transactions/histories', [
+        'as' => 'transactions.histories',
+        'uses' => 'TransactionController@histories',
+    ]);
+    Route::get('transactions/{id}/confirmation', [
+        'as' => 'transactions.confirmation',
+        'uses' => 'TransactionController@confirmation',
+    ]);
+    Route::post('transactions/{id}/confirmation', [
+        'as' => 'transactions.confirm',
+        'uses' => 'TransactionController@confirm',
+    ]);
 });
 
 Route::group(['as' => 'admin.', 'namespace' => 'Admin', 'prefix' => 'admin'], function(){
@@ -137,19 +151,19 @@ Route::group(['as' => 'admin.', 'namespace' => 'Admin', 'prefix' => 'admin'], fu
         ]);
 
         //Transactions
-        Route::get('Transactions', [
+        Route::get('transactions', [
             'as' => 'transactions.index',
             'uses' => 'TransactionController@index',
         ]);
-        Route::get('Transactions/{id}/edit', [
+        Route::get('transactions/{id}/edit', [
             'as' => 'transactions.edit',
             'uses' => 'TransactionController@edit',
         ]);
-        Route::put('Transactions/{id}/edit', [
+        Route::put('transactions/{id}/edit', [
             'as' => 'transactions.update',
             'uses' => 'TransactionController@update',
         ]);
-        Route::delete('Transactions/{id}/destroy', [
+        Route::delete('transactions/{id}/destroy', [
             'as' => 'transactions.destroy',
             'uses' => 'TransactionController@destroy',
         ]);
