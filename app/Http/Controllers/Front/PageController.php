@@ -29,6 +29,7 @@ class PageController extends Controller
 
     public function contact()
     {
+
         return view('front.contact');
     }
 }
