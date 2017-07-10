@@ -14,6 +14,8 @@
 Auth::Routes();
 
 Route::group(['as' => 'front.', 'namespace' => 'Front'], function(){
+
+    //main function
     Route::get('/', [
       'as' => 'home',
       'uses' => 'PageController@home',
@@ -55,6 +57,20 @@ Route::group(['as' => 'front.', 'namespace' => 'Front'], function(){
     Route::post('transactions/{id}/confirmation', [
         'as' => 'transactions.confirm',
         'uses' => 'TransactionController@confirm',
+    ]);
+
+    //basket
+    Route::get('basket', [
+        'as' => 'basket.index',
+        'uses' => 'BasketController@index',
+    ]);
+    Route::get('basket/{id}', [
+        'as' => 'basket.add',
+        'uses' => 'BasketController@add',
+    ]);
+    Route::post('basket', [
+        'as' => 'basket.store',
+        'uses' => 'BasketController@store',
     ]);
 });
 

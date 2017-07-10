@@ -106,7 +106,7 @@
                                 <a href="{{ route('front.destination.show', ['title' => str_slug($destination->title)]) }}" class="tm-home-box-2-link">
                                     <span class="tm-home-box-2-description box-3">LIHAT</span>
                                 </a>
-                                <a href="login.html" class="tm-home-box-2-link">
+                                <a href="{{ route('front.basket.add', ['id' => $destination->id]) }}" class="tm-home-box-2-link">
                                     <i class="fa fa-ticket tm-home-box-2-icon border-left"></i>
                                 </a>
                             </div>
