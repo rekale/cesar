@@ -14,7 +14,7 @@
                     </div>
                     <div class="form-group">
                         <label for="exampleInputFile">Total ticket</label>
-                            <input type="number" name="tickets" class="form-control">
+                            <input type="number" name="buy_tickets" class="form-control" value="{{ $destination->buy_tickets }}">
                     </div>
                     <button type="submit" class="btn btn-default">Submit</button>
                 </form>

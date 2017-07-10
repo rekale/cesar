@@ -48,7 +48,7 @@ class LoginController extends Controller
         $name = $user['name'];
         flash("welcome {$name} !")->success();
 
-        return redirect()->route('front.home');
+        return redirect()->intended('/');
     }
 
     public function logout(Request $request)

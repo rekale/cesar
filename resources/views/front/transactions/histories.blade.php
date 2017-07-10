@@ -1,9 +1,12 @@
 @extends('front.layouts.app')
 
+@section('page-title')
+    TRANSACTION
+@endsection
+
 @section('content')
-    <div class="col-md-12" style="margin-top: 3em">
-        <div class="page-header">
-            <h3>Transasction <small>histories</small></h3>
+    <div class="col-md-12 well" style="margin-top: 3em">
+        <div>
             <form method="GET" Action="{{ route('front.transactions.histories') }}" id="purchase-filter">
                 <div class="form-group">
                     <label>Filter</label>

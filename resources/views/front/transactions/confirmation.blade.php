@@ -1,7 +1,7 @@
 @extends('front.layouts.app')
 
 @section('content')
-    <div class="col-md-12" style="margin-top: 3em">
+    <div class="col-md-12 well" style="margin-top: 3em">
         <h3>Transaction <small>confrimation</small></h3>
         <div class="panel panel-default">
             <div class="panel-body">

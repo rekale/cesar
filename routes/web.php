@@ -45,20 +45,6 @@ Route::group(['as' => 'front.', 'namespace' => 'Front'], function(){
       'uses' => 'DestinationController@index',
      ]);
 
-    //transactions
-    Route::get('transactions', [
-        'as' => 'transactions.histories',
-        'uses' => 'TransactionController@histories',
-    ]);
-    Route::get('transactions/{id}/confirmation', [
-        'as' => 'transactions.confirmation',
-        'uses' => 'TransactionController@confirmation',
-    ]);
-    Route::post('transactions/{id}/confirmation', [
-        'as' => 'transactions.confirm',
-        'uses' => 'TransactionController@confirm',
-    ]);
-
     //basket
     Route::get('basket', [
         'as' => 'basket.index',
@@ -72,6 +58,34 @@ Route::group(['as' => 'front.', 'namespace' => 'Front'], function(){
         'as' => 'basket.store',
         'uses' => 'BasketController@store',
     ]);
+    Route::delete('basket', [
+        'as' => 'basket.destroy',
+        'uses' => 'BasketController@destroy',
+    ]);
+
+    Route::group(['middleware' => 'auth:web'], function() {
+
+        //checkout
+        Route::get('checkout', [
+            'as' => 'basket.checkout',
+            'uses' => 'BasketController@checkout',
+        ]);
+
+        //transactions
+        Route::get('transactions', [
+            'as' => 'transactions.histories',
+            'uses' => 'TransactionController@histories',
+        ]);
+        Route::get('transactions/{id}/confirmation', [
+            'as' => 'transactions.confirmation',
+            'uses' => 'TransactionController@confirmation',
+        ]);
+        Route::post('transactions/{id}/confirmation', [
+            'as' => 'transactions.confirm',
+            'uses' => 'TransactionController@confirm',
+        ]);
+    });
+
 });
 
 Route::group(['as' => 'admin.', 'namespace' => 'Admin', 'prefix' => 'admin'], function(){

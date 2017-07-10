@@ -18,6 +18,7 @@
       top: 40em;
       right: 2em;
       width: 18em;
+      z-index: 1000;
     }
     .tm-home-box-3-img-container img {
       width: 250px;
