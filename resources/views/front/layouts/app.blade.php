@@ -30,79 +30,33 @@
     .tm-tours-box-1-info {
       height: 10em;
     }
-    .banner {
-      width: 1280px !important;
-      height: 480px !important;
+
+    .navbar-inverse{
+        height: 5em;
+        border-radius: 0px;
+        text-transform: capitalize;
     }
+    .navbar-brand, .navbar-nav>li>a {
+        padding-top: 25px;
+        padding-bottom: 25px;
+    }
+    .nav a:hover{
+        background: #FCDD44 !important;
+        color: #000 !important;
+    }
+    .open a:hover {
+        color: #9d9d9d !important;
+    }
+    .active {
+        color: #000 !important;
+        background: #FCDD44;
+    }
+
   </style>
   @yield('styles')
   </head>
   <body class="tm-gray-bg">
-    <!-- Header -->
-    <div class="tm-header">
-      <nav class="tm-nav">
-          <ul>
-                <li>
-                    <a href="{{ route('front.basket.index') }}">
-                        @php
-                            $basket = json_decode(request()->cookie('basket'));
-                        @endphp
-                        @if(count($basket))
-                            <span class="badge">{{ count($basket) }}</span>
-                        @endif
-                        <i class="fa fa-shopping-basket" aria-hidden="true"></i>
-                    </a>
-                </li>
-                @if(Auth::check())
-                  <li>
-                    <a href="#" onclick="$('#logout').submit()">
-                      <span class="glyphicon glyphicon-off"></span>
-                        Logout
-                        <form action="{{ route('logout') }}" id="logout" method="POST">
-                           {{ csrf_field() }}
-                        </form>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <span class="glyphicon glyphicon-user"></span>
-                      {{ Auth::user()->name }}
-                    </a>
-                  </li>
-                @else
-                  <li>
-                    <a href="{{ route('login') }}" class="{{ Request::is('*login') ? 'active':'' }}">
-                      masuk/daftar
-                    </a>
-                  </li>
-                @endif
-              </li>
-              <li>
-                <a href="{{ route('front.contact') }}" class="{{ Request::is('*contact') ? 'active':'' }}">
-                  peta
-                </a>
-              </li>
-              <li>
-                <a href="{{ route('front.tours') }}" class="{{ Request::is('*tours') ? 'active':'' }}">
-                  bantuan
-                </a>
-              </li>
-              <li>
-                <a href="{{ route('front.about') }}" class="{{ Request::is('*about') ? 'active':'' }}">
-                  tentang
-                </a>
-              </li>
-              <li>
-                <a href="{{ route('front.home') }}" class="{{ Request::is('/') ? 'active':'' }}">
-                  beranda
-                </a>
-              </li>
-            </ul>
-              <p style="font-size: 20px">
-                <a href="{{ route('front.home') }}" style="color: #FCDD44">@yield('page-title')</a>
-              </p>
-      </nav>
-    </div>
+    @include('front.partials.navbar')
     <div class="container-fluid">
       @include('flash::message')
       @yield('content')
