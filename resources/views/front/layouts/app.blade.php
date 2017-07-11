@@ -5,9 +5,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Home</title>
-
+  <script src="https://use.fontawesome.com/dda69024cd.js"></script>
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,600,700' rel='stylesheet' type='text/css'>
-  <link href="{{ asset('css/font-awesome.min.css') }}"" rel="stylesheet">
   <link href="{{ asset('css/bootstrap.min.css') }}"" rel="stylesheet">
   <link href="{{ asset('css/bootstrap-datetimepicker.min.css') }}"" rel="stylesheet">
   <link href="{{ asset('css/flexslider.css') }}"" rel="stylesheet">
@@ -43,6 +42,17 @@
     <div class="tm-header">
       <nav class="tm-nav">
           <ul>
+                <li>
+                    <a href="{{ route('front.basket.index') }}">
+                        @php
+                            $basket = json_decode(request()->cookie('basket'));
+                        @endphp
+                        @if(count($basket))
+                            <span class="badge">{{ count($basket) }}</span>
+                        @endif
+                        <i class="fa fa-shopping-basket" aria-hidden="true"></i>
+                    </a>
+                </li>
                 @if(Auth::check())
                   <li>
                     <a href="#" onclick="$('#logout').submit()">
