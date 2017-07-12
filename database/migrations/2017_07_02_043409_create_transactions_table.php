@@ -21,6 +21,10 @@ class CreateTransactionsTable extends Migration
             $table->boolean('confirmed')->default(false);
             $table->timestamps();
             $table->dateTime('expired_at')->nullable();
+
+            $table->foreign('user_id')
+                  ->references('id')->on('users')
+                  ->onDelete('cascade');
         });
     }
 
