@@ -24,16 +24,21 @@
 
     <script>
 
+        var currentLocation = null;
+
         function initMap() {
             //default location
             var jakarta = {lat: -6.229728, lng: 106.6894306};
-
             var map = new google.maps.Map(document.getElementById('map'), {
                 zoom: 8,
                 center: jakarta,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
             });
+            var directionsDisplay = new google.maps.DirectionsRenderer({
+              map: map
+            });
+            var directionsService = new google.maps.DirectionsService;
             var dest = {!! $destination ?? 'null' !!};
-
             getCurrentLocation(map, dest);
 
             var infowindow = new google.maps.InfoWindow({
@@ -46,20 +51,11 @@
                   map: map,
                   title: dest.title
                 });
-                var template = document.querySelector('#info').content;
-                template.querySelector('.img').src = dest.thumbnail_image;
-                template.querySelector('.title').innerHTML = dest.title;
-                template.querySelector('.abstract').innerHTML = dest.abstract;
-                var clone = document.importNode(template, true);
-
-                //show it
-                infowindow.open(map, marker);
-                infowindow.setContent(clone);
-
                 map.panTo({
                     lat: dest.lat,
                     lng: dest.lng
                 });
+                map.setZoom(10);
 
                 marker.addListener('click', function(){
                     //create template
@@ -68,18 +64,21 @@
                     template.querySelector('.title').innerHTML = dest.title;
                     template.querySelector('.abstract').innerHTML = dest.abstract;
                     var clone = document.importNode(template, true);
-
                     //show it
                     infowindow.open(map, this);
                     infowindow.setContent(clone);
 
                     map.panTo({
-                        lat: dest.lat,
-                        lng: dest.lng
+                        lat: this.position.lat(),
+                        lng: this.position.lng()
                     });
+
+                    calculateAndDisplayRoute(directionsService, directionsDisplay, currentLocation, this)
+
                 });
             } else {
                 $.getJSON('/destinations').done(function (destinations) {
+
                     destinations.forEach(function(destination){
 
                         var marker = new google.maps.Marker({
@@ -102,8 +101,12 @@
 
                             map.panTo({
                                 lat: this.position.lat(),
-                                lng: this.position.lng()
+                                lng: this.position.lng(),
                             });
+
+
+                            calculateAndDisplayRoute(directionsService, directionsDisplay, currentLocation, this)
+
                         });
 
                     });
@@ -115,7 +118,6 @@
 
         function getCurrentLocation(map, dest) {
             var myLocationWindow = new google.maps.InfoWindow;
-
             // Try HTML5 geolocation.
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(function(position) {
@@ -131,7 +133,7 @@
                         map.panTo(pos);
                     }
 
-                    var marker = new google.maps.Marker({
+                    marker = new google.maps.Marker({
                         position: {"lat": pos.lat, "lng": pos.lng},
                         map: map,
                         title: "my location"
@@ -143,9 +145,12 @@
 
                     });
 
+                    currentLocation = marker;
+
                 }, function() {
                     handleLocationError(true, myLocationWindow, map.getCenter());
                 });
+
             } else {
                   // Browser doesn't support Geolocation
                   handleLocationError(false, myLocationWindow, map.getCenter());
@@ -158,6 +163,20 @@
                               'Error: The Geolocation service failed.' :
                               'Error: Your browser doesn\'t support geolocation.');
         infoWindow.open(map);
+      }
+
+      function calculateAndDisplayRoute(directionsService, directionsDisplay, pointA, pointB) {
+        directionsService.route({
+          origin: pointA.position,
+          destination: pointB.position,
+          travelMode: google.maps.TravelMode.DRIVING
+        }, function(response, status) {
+          if (status == google.maps.DirectionsStatus.OK) {
+            directionsDisplay.setDirections(response);
+          } else {
+            window.alert('Directions request failed due to ' + status);
+          }
+        });
       }
     </script>
     <script async defer
