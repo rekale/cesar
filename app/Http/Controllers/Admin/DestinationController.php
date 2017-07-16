@@ -70,7 +70,9 @@ class DestinationController extends Controller
 
     public function update($id, DestinationRequest $request)
     {
-        $input = $request->only('title', 'category_id', 'location', 'abstract', 'description', 'lat', 'lng');
+        $input = $request->only(
+            'title', 'category_id', 'tickets', 'ticket_price', 'location', 'abstract', 'description', 'lat', 'lng'
+        );
         $input['slug'] = str_slug($input['title']);
 
         if ($request->hasFile('thumbnail_image')) {

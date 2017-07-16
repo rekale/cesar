@@ -58,6 +58,11 @@
 </div>
 
 <div class="form-group">
+    <label>Ticket Price</label>
+    <input type="number" class="form-control" name="ticket_price" placeholder="tickets" value="{{ $destination->ticket_price ?? old('ticket_price') }}">
+</div>
+
+<div class="form-group">
     <label>Location</label>
     <input type="text" class="form-control" name="location" placeholder="location" id="location" value="{{ $destination->location ?? old('location') }}">
     <input type="hidden" id="lat" name="lat" value={{ $destination->lat ?? old('lat') }} />
