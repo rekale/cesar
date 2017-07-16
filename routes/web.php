@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Transaction;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -10,6 +12,11 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get('/tickets', function(){
+    $transaction = Transaction::with('destinations')->first();
+    return view('front.tickets', compact('transaction'));
+});
 
 Auth::Routes();
 
@@ -84,6 +91,12 @@ Route::group(['as' => 'front.', 'namespace' => 'Front'], function(){
             'as' => 'transactions.confirm',
             'uses' => 'TransactionController@confirm',
         ]);
+
+        Route::get('transactions/{id}/print', [
+            'as' => 'transactions.print',
+            'uses' => 'TransactionController@print',
+        ]);
+
     });
 
 });

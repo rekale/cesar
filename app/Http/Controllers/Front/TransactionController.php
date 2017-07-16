@@ -56,6 +56,14 @@ class TransactionController extends Controller
         return redirect()->route('front.transactions.histories');
     }
 
+    public function print($id, Transaction $transaction)
+    {
+        $transaction = $transaction->with('destinations')->findOrFail($id);
+
+        $pdf = \PDF::loadView('front.tickets', compact('transaction'));
+        return $pdf->stream('tiket.pdf');
+    }
+
     private function confirmed(Builder $model)
     {
         return $model->whereConfirmed(true);

@@ -70,7 +70,8 @@
             @else
               <li>
                 <a href="{{ route('login') }}" class="{{ Request::is('*login') ? 'active':'' }}">
-                    Daftar
+                  <i class="fa fa-sign-in" aria-hidden="true"></i>
+                    Masuk
                 </a>
               </li>
             @endif

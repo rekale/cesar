@@ -81,12 +81,20 @@
                             @endif
                         </td>
                         <td>
-                            <a href="{{ route('front.transactions.confirmation', $transaction->id) }}"
-                                class="btn btn-sm btn-default"
-                                {{ $transaction->confirmed ? 'disabled': ''}}
-                            >
-                                    Confirm
-                            </a>
+                            @if($transaction->confirmed)
+                                <a href="{{ route('front.transactions.print', $transaction->id) }}"
+                                    class="btn btn-sm btn-primary" target="_blank"
+                                >
+                                        Print
+                                </a>
+                            @else
+                                <a href="{{ route('front.transactions.confirmation', $transaction->id) }}"
+                                    class="btn btn-sm btn-default"
+                                    {{ $transaction->confirmed ? 'disabled': ''}}
+                                >
+                                        Confirm
+                                </a>
+                            @endif
                         </td>
                     </tr>
                 @endforeach
