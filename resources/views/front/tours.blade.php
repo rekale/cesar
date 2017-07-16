@@ -55,74 +55,26 @@
                 <li>
                   <img src="img/about-1.jpg" alt="image" />
                   <div class="flex-caption">
-                    <h2 class="slider-title">Welcome To Holiday</h2>
-                    <h3 class="slider-subtitle">Gravida nibh vel velit auctor aliquet enean sollicitudin lorem quis auctor</h3>
-                    <p class="slider-description">Holiday is free Bootstrap v3.3.5 responsive template for tour and travel websites. You can download and use this layout for any purpose. You do not need to provide a credit link to us. If you have any question, feel free to <a href="http://www.facebook.com/templatemo" target="_parent">contact us</a>. <br><br>
-                    Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris in erat justo. Nullam ac urna eu felis dapibus condimentum.</p>
-                    <!-- <div class="slider-social">
-                        <a href="#" class="tm-social-icon"><i class="fa fa-twitter"></i></a>
-                        <a href="#" class="tm-social-icon"><i class="fa fa-facebook"></i></a>
-                        <a href="#" class="tm-social-icon"><i class="fa fa-pinterest"></i></a>
-                        <a href="#" class="tm-social-icon"><i class="fa fa-google-plus"></i></a>
-                    </div> -->
-                  </div>
-                </li>
-                <li>
-                  <img src="img/about-1.jpg" alt="image" />
-                  <div class="flex-caption">
-                    <h2 class="slider-title">Thank you for choosing us!</h2>
-                    <h3 class="slider-subtitle">Gravida nibh vel velit auctor aliquet enean sollicitudin lorem quis auctor, nisi elit consequat ipsum</h3>
-                    <p class="slider-description">Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.<br><br>
-                    Mauris in erat justo. Nullam ac urna eu felis dapibus condimentum sit amet a augue. Sed non neque elit. Sed ut imperdiet nisi. Proin condimentum fermentum nunc. Etiam pharetra, erat sed fermentum feugiat, velit mauris gestas quam, ut aliquam massa nisi.</p>
-                    <!-- <div class="slider-social">
-                        <a href="#" class="tm-social-icon"><i class="fa fa-twitter"></i></a>
-                        <a href="#" class="tm-social-icon"><i class="fa fa-facebook"></i></a>
-                        <a href="#" class="tm-social-icon"><i class="fa fa-pinterest"></i></a>
-                        <a href="#" class="tm-social-icon"><i class="fa fa-google-plus"></i></a>
-                    </div> -->
-                  </div>
-                </li>
-                <li>
-                  <img src="img/about-1.jpg" alt="image" />
-                  <div class="flex-caption">
-                    <h2 class="slider-title">More Programs to come</h2>
-                    <h3 class="slider-subtitle">Gravida nibh vel velit auctor aliquet enean sollicitudin lorem quis auctor, nisi elit consequat ipsum</h3>
-                    <p class="slider-description">Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris in erat justo. Nullam ac urna eu felis dapibus condimentum sit amet a augue. Sed non neque elit. Sed ut imperdiet nisi. Proin condimentum fermentum nunc. Etiam pharetra, erat sed fermentum feugiat, velit mauris gestas quam, ut aliquam massa nisi.</p>
-                    <!-- <div class="slider-social">
-                        <a href="#" class="tm-social-icon"><i class="fa fa-twitter"></i></a>
-                        <a href="#" class="tm-social-icon"><i class="fa fa-facebook"></i></a>
-                        <a href="#" class="tm-social-icon"><i class="fa fa-pinterest"></i></a>
-                        <a href="#" class="tm-social-icon"><i class="fa fa-google-plus"></i></a>
-                    </div> -->
-                  </div>
-                </li>
-                <li>
-                  <img src="img/about-1.jpg" alt="image" />
-                  <div class="flex-caption">
-                    <h2 class="slider-title">Tour and Travel</h2>
-                    <h3 class="slider-subtitle">Gravida nibh vel velit auctor aliquet enean sollicitudin lorem quis auctor, nisi elit consequat ipsum</h3>
-                    <p class="slider-description">Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris in erat justo. Nullam ac urna eu felis dapibus condimentum sit amet a augue. Sed non neque elit. Sed ut imperdiet nisi. Proin condimentum fermentum nunc. Etiam pharetra, erat sed fermentum feugiat, velit mauris gestas quam, ut aliquam massa nisi.</p>
-                    <!-- <div class="slider-social">
-                        <a href="#" class="tm-social-icon"><i class="fa fa-twitter"></i></a>
-                        <a href="#" class="tm-social-icon"><i class="fa fa-facebook"></i></a>
-                        <a href="#" class="tm-social-icon"><i class="fa fa-pinterest"></i></a>
-                        <a href="#" class="tm-social-icon"><i class="fa fa-google-plus"></i></a>
-                    </div> -->
-                  </div>
-                </li>
-                <li>
-                  <img src="img/about-1.jpg" alt="image" />
-                  <div class="flex-caption">
-                    <h2 class="slider-title">Welcome To Holiday</h2>
-                    <h3 class="slider-subtitle">Gravida nibh vel velit auctor aliquet enean sollicitudin lorem quis auctor</h3>
-                    <p class="slider-description">Holiday is free Bootstrap v3.3.5 responsive template for tour and travel websites. You can download and use this layout for any purpose. You do not need to provide a credit link to us. If you have any question, feel free to <a href="http://www.facebook.com/templatemo" target="_parent">contact us</a>. <br><br>
-                    Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris in erat justo. Nullam ac urna eu felis dapibus condimentum.</p>
-                    <!-- <div class="slider-social">
-                        <a href="#" class="tm-social-icon"><i class="fa fa-twitter"></i></a>
-                        <a href="#" class="tm-social-icon"><i class="fa fa-facebook"></i></a>
-                        <a href="#" class="tm-social-icon"><i class="fa fa-pinterest"></i></a>
-                        <a href="#" class="tm-social-icon"><i class="fa fa-google-plus"></i></a>
-                    </div> -->
+                    <h2 class="slider-title">APLIKASI WISATA ALAM BEBAS DI PULAU JAWA</h2>
+                                        <p class="slider-description">
+                                            Aplikasi Wisata Alam Bebas Di Pulau Jawa” hanya membahas tentang wisata alam Pendakian Gunung, Panjat Tebing, Arung Jeram, dan Susur Goa. Di tujukan kepada para penggiat alam bebas yang ingin melakukan petualangan di pulau jawa.
+                                        </p>
+                                        <p>
+                                            Menurut penggunaannya, aplikasi ini memiliki  menu fungsi :
+                                        </p>
+                                        <p>
+                                            <ol>
+                                                <li><b>Menu "Kategori Wisata":</b> Adalah menu yang digunakan untuk membedakan daftar wisata sesuai dengan kategorinya ( Pendakian Gunung, Panjat Tebing, Arung Jeram, dan Susur Goa ).</li>
+                                                <li><b>Menu “Daftar Wisata”:</b> Adalah menu yang digunakan untuk memilih daftar wisata yang diinginkan sesuai dengan kategori yang dipilih pada menu “Kategori Wisata”.</li>
+                                                <li><b>Menu “Detail Wisata”:</b> Adalah menu yang digunakan untuk melihat informasi wisata secara detail. Dalam menu ini dapat dilakukan pemesanan tiket dan melihat lokasi wisata alam bebas dengan menekan tombol icon “Tiket” dan “peta”.</li>
+                                                <li><b>Menu “Icon Tiket”:</b> Adalah menu yang terdapat dalam menu “Detail Wisata” yang berfungsi sebagai menu pemesanan tiket wisata yang diinginkan.</li>
+                                                <li><b>Menu “Icon Peta”:</b> Adalah menu yang terdapat dalam menu “Detail Wisata” yang berfungsi sebagai menu yang dapat menampilkan lokasi wisata yang dipilih.</li>
+                                            </ol>
+                                        </p>
+                                        <br>
+                                        <p>
+                                            Semoga aplikasi ini bermanfaat bagi para pengguna yang ingin melakukan petualangan alam bebas di pulau jawa
+                                        </p>
                   </div>
                 </li>
               </ul>

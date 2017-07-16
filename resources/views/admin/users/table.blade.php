@@ -5,8 +5,8 @@
           <th>Name</th>
           <th>Username</th>
           <th>Email</th>
-          <th>Action</th>
           <th>Phone</th>
+          <th>Action</th>
         </tr>
     </thead>
     <tbody>
