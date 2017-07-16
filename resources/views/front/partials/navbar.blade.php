@@ -30,7 +30,7 @@
             </a>
           </li>
           <li>
-            <a href="{{ route('front.contact') }}" class="{{ Request::is('*contact') ? 'active':'' }}">
+            <a href="{{ route('front.map') }}" class="{{ Request::is('*peta') ? 'active':'' }}">
                 <i class="fa fa-map" aria-hidden="true"></i> Peta
             </a>
           </li>

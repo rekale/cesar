@@ -30,9 +30,9 @@ Route::group(['as' => 'front.', 'namespace' => 'Front'], function(){
       'as' => 'tours',
       'uses' => 'PageController@tours',
     ]);
-    Route::get('peta', [
-      'as' => 'contact',
-      'uses' => 'PageController@contact'
+    Route::get('peta/{slug?}', [
+      'as' => 'map',
+      'uses' => 'PageController@map'
     ]);
     Route::get('/wisata/{title}', [
       'as' => 'destination.show',

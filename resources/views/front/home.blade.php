@@ -100,7 +100,7 @@
                             <div class="tm-home-box-3-info">
                                 <p class="tm-home-box-3-description">{{ $destination->abstract }}</p>
                                 <div class="tm-home-box-2-container">
-                                <a href="#" class="tm-home-box-2-link">
+                                <a href="{{ route('front.map', ['slug' => $destination->slug]) }}" class="tm-home-box-2-link">
                                     <i class="fa fa-map-marker tm-home-box-2-icon border-right"></i>
                                 </a>
                                 <a href="{{ route('front.destination.show', ['title' => str_slug($destination->title)]) }}" class="tm-home-box-2-link">

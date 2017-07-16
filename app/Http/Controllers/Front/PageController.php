@@ -27,9 +27,10 @@ class PageController extends Controller
         return view('front.tours');
     }
 
-    public function contact()
+    public function map($slug = null, Destination $destination)
     {
+        $destination = isset($slug) ? $destination->whereSlug($slug)->firstOrFail()->toJson() : null;
 
-        return view('front.contact');
+        return view('front.map', compact('destination'));
     }
 }
