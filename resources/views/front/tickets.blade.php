@@ -10,45 +10,61 @@
         <div class="page-header">
           <h2>Tiket</h2>
         </div>
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th>Destinasi</th>
-                    <th>Jumlah</th>
-                    <th>Subtotal</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>
-                        @foreach($transaction->destinations as $destination)
-                            <ul>
-                                <li>{{ $destination->title }}</li>
-                            </ul>
-                        @endforeach
-                    </td>
-                    <td>
-                        @foreach($transaction->destinations as $destination)
-                            <ul>
-                                <li>{{ $destination->pivot->tickets }}</li>
-                            </ul>
-                        @endforeach
-                    </td>
-                    <td>
-                        @foreach($transaction->destinations as $destination)
-                            <ul>
-                                <li>{{ $destination->pivot->tickets * $destination->ticket_price }}</li>
-                            </ul>
-                        @endforeach
-                    </td>
-                </tr>
-                <tr>
-                    <td>Total</td>
-                    <td></td>
-                    <td>{{ $transaction->total }}</td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="col-md-12">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>No. order</th>
+                        <th>Nama</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{ $transaction->id }}</td>
+                        <td>{{ $transaction->user->name }}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Destinasi</th>
+                        <th>Jumlah</th>
+                        <th>Subtotal</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            @foreach($transaction->destinations as $destination)
+                                <ul>
+                                    <li>{{ $destination->title }}</li>
+                                </ul>
+                            @endforeach
+                        </td>
+                        <td>
+                            @foreach($transaction->destinations as $destination)
+                                <ul>
+                                    <li>{{ $destination->pivot->tickets }}</li>
+                                </ul>
+                            @endforeach
+                        </td>
+                        <td>
+                            @foreach($transaction->destinations as $destination)
+                                <ul>
+                                    <li>{{ $destination->pivot->tickets * $destination->ticket_price }}</li>
+                                </ul>
+                            @endforeach
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Total</td>
+                        <td></td>
+                        <td>{{ $transaction->total }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 </body>
 </html>

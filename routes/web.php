@@ -13,11 +13,6 @@ use App\Models\Transaction;
 |
 */
 
-Route::get('/tickets', function(){
-    $transaction = Transaction::with('destinations')->first();
-    return view('front.tickets', compact('transaction'));
-});
-
 Auth::Routes();
 
 Route::group(['as' => 'front.', 'namespace' => 'Front'], function(){
@@ -35,13 +30,9 @@ Route::group(['as' => 'front.', 'namespace' => 'Front'], function(){
       'as' => 'tours',
       'uses' => 'PageController@tours',
     ]);
-    Route::get('contact', [
+    Route::get('peta', [
       'as' => 'contact',
       'uses' => 'PageController@contact'
-    ]);
-    Route::get('{category}/daftar-panjat', [
-      'as' => 'destination.category-list',
-      'uses' => 'DestinationController@listByCategory'
     ]);
     Route::get('/wisata/{title}', [
       'as' => 'destination.show',
@@ -51,6 +42,11 @@ Route::group(['as' => 'front.', 'namespace' => 'Front'], function(){
       'as' => 'destination.api',
       'uses' => 'DestinationController@index',
      ]);
+
+    Route::get('kategori/{category}', [
+      'as' => 'destination.category-list',
+      'uses' => 'DestinationController@listByCategory'
+    ]);
 
     //basket
     Route::get('basket', [
