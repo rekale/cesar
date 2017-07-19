@@ -15,9 +15,9 @@
                     <a class="btn btn-default btn-sm" href="{{ route('admin.categories.edit', $category->id) }}">
                         <span class="glyphicon glyphicon-edit"></span>
                     </a>
-                    <a class="btn btn-danger btn-sm" href="#" onclick="confirm('are you sure?') ? $('#category-delete').submit() : null ">
+                    <a class="btn btn-danger btn-sm" href="#" onclick="confirm('are you sure?') ? $('#category-delete-{{$category->id}}').submit() : null ">
                         <span class="glyphicon glyphicon-trash"></span>
-                        <form class="hidden" id="category-delete" method="POST" action="{{ route('admin.categories.destroy', $category->id) }}">
+                        <form class="hidden" id="category-delete-{{$category->id}}" method="POST" action="{{ route('admin.categories.destroy', $category->id) }}">
                             {{ csrf_field() }}
                             {{ method_field('DELETE') }}
                         </form>

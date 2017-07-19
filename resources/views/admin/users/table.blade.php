@@ -21,9 +21,9 @@
                     <a class="btn btn-default btn-sm" href="{{ route('admin.users.edit', $user->id) }}">
                         <span class="glyphicon glyphicon-edit"></span>
                     </a>
-                    <a class="btn btn-danger btn-sm" href="#" onclick="confirm('are you sure?') ? $('#user-delete').submit() : null ">
+                    <a class="btn btn-danger btn-sm" href="#" onclick="confirm('are you sure?') ? $('#user-delete-{{$user->id}}').submit() : null ">
                         <span class="glyphicon glyphicon-trash"></span>
-                        <form class="hidden" id="user-delete" method="POST" action="{{ route('admin.users.destroy', $user->id) }}">
+                        <form class="hidden" id="user-delete-{{$user->id}}" method="POST" action="{{ route('admin.users.destroy', $user->id) }}">
                             {{ csrf_field() }}
                             {{ method_field('DELETE') }}
                         </form>

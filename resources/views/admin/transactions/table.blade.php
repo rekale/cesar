@@ -19,9 +19,9 @@
                     <a class="btn btn-default btn-sm" href="{{ route('admin.transactions.edit', $transaction->id) }}">
                         <span class="glyphicon glyphicon-edit"></span>
                     </a>
-                    <a class="btn btn-danger btn-sm" href="#" onclick="confirm('are you sure?') ? $('#transaction-delete').submit() : null ">
+                    <a class="btn btn-danger btn-sm" href="#" onclick="confirm('are you sure?') ? $('#transaction-delete-{{$transaction->id}}').submit() : null ">
                         <span class="glyphicon glyphicon-trash"></span>
-                        <form class="hidden" id="transaction-delete" method="POST" action="{{ route('admin.transactions.destroy', $transaction->id) }}">
+                        <form class="hidden" id="transaction-delete-{{$transaction->id}}" method="POST" action="{{ route('admin.transactions.destroy', $transaction->id) }}">
                             {{ csrf_field() }}
                             {{ method_field('DELETE') }}
                         </form>
