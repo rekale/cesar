@@ -75,6 +75,10 @@ class BasketController extends Controller
             ]);
 
             foreach($destinations as $destination) {
+                $dest = Destination::findOrFail($destination['id']);
+                $dest->tickets -= $destination['tickets'];
+                $dest->save();
+
                 $transaction->destinations()->attach($destination['id'], [
                     'total' => $destination['total'],
                     'tickets' => $destination['buy_tickets'],

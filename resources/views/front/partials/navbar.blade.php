@@ -36,7 +36,7 @@
           </li>
           <li class="dropdown">
                 <a href="{{ route('front.basket.index') }}">
-                    <?php $basket = json_decode(request()->cookie('basket')); ?>
+                    <?php $basket = json_decode(request()->cookie('basket'), true); ?>
                     @if(count($basket))
                         <span class="badge">{{ count($basket) }}</span>
                     @endif
