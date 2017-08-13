@@ -34,8 +34,8 @@
                             <p class="slider-description">{!! $destination->description !!}</p>
 
                             <div class="slider-social">
-                                <a href="{{ route('front.basket.add', ['id' => $destination->id]) }}" class="tm-social-icon"><i class="fa fa-ticket"></i></a>
-                                <a href="{{ route('front.map', ['slug' => $destination->slug]) }}" class="tm-social-icon"><i class="fa fa-map-marker"></i></a>
+                                <a href="{{ route('front.basket.add', ['id' => $destination->id]) }}" class="tm-social-icon"><i class="fa fa-ticket"></i> Pesan Tiket</a>
+                                <a href="{{ route('front.map', ['slug' => $destination->slug]) }}" class="tm-social-icon"><i class="fa fa-map-marker"></i> Lihat Lokasi</a>
 
                                 <!-- <a href="#" class="tm-social-icon"><i class="fa fa-twitter"></i></a>
                                 <a href="#" class="tm-social-icon"><i class="fa fa-facebook"></i></a>
