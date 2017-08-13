@@ -39,6 +39,7 @@
     .navbar-brand, .navbar-nav>li>a {
         padding-top: 25px;
         padding-bottom: 25px;
+        font-weight: bold;
     }
     .nav a:hover{
         background: #FCDD44 !important;
