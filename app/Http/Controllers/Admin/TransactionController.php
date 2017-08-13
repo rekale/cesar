@@ -43,11 +43,6 @@ class TransactionController extends Controller
     {
         $input = $request->only(['total', 'proof', 'confirmed']);
 
-        if($request->hasFile('proof')) {
-            $imgPath = $request->file('image')->store('transactions', 'public');
-            $input['image'] = "/storage/{$imgPath}";
-        }
-
         $transaction = $this->model->whereId($id)->update($input);
 
         flash('transaction successfuly edited')->success();
