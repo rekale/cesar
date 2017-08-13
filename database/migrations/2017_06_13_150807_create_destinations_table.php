@@ -16,8 +16,8 @@ class CreateDestinationsTable extends Migration
         Schema::create('destinations', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('category_id');
-            $table->string('title');
-            $table->string('slug')->index();
+            $table->string('title', 15);
+            $table->string('slug', 25)->index();
             $table->string('thumbnail_image');
             $table->string('abstract');
             $table->string('location');
