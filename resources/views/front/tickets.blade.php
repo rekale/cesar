@@ -8,19 +8,21 @@
 <body>
     <div class="container">
         <div class="page-header">
-          <h2>Tiket</h2>
+          <h2 style="text-align: center;">TIKET WISATA ALAM BEBAS</h2>
         </div>
         <div class="col-md-12">
             <table class="table table-bordered">
                 <thead>
                     <tr>
                         <th>No. order</th>
+                        <th>Tanggal Order</th>
                         <th>Nama</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td>{{ $transaction->id }}</td>
+                        <td>{{ $transaction->created_at->format('d-m-Y') }}</td>
                         <td>{{ $transaction->user->name }}</td>
                     </tr>
                 </tbody>
